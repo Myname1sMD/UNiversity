@@ -1,5 +1,6 @@
 // =================================================================
 // ЧАСТЬ 1: БАЗА ДАННЫХ (UNIVERSITY DATA)
+// (Добавлены заглушки для полноты массива до 13 ВУЗов)
 // =================================================================
 const universityData = [
     {
@@ -378,46 +379,45 @@ const universityData = [
             },
             "virtual_tour": {
                 "title": "🗺️ 3D-тур",
-                "link": "https://www.youtube.com/embed/pLz_ZqGz9U0" 
+                "link": "https://www.youtube.com/embed/pLz_ZqGz9U0"
             }
         }
     }
-    // ... (Остальные 6 университетов) ...
 ];
 
-// Добавьте еще 6 университетов, чтобы в массиве было 13, как указано в HTML
-// Здесь я добавляю заглушки для полноты:
+// Добавление 6 заглушек (UNI8 - UNI13) для полноты массива:
 for (let i = 8; i <= 13; i++) {
     universityData.push({
         "id": "uni" + i,
-        "name": `Университет №${i}`,
+        "name": `Университет №${i} (Региональный Тех.)`,
         "city": (i % 3 === 0 ? "Караганда" : (i % 2 === 0 ? "Алматы" : "Нур-Султан (Астана)")),
         "image_url": `https://via.placeholder.com/300x200?text=UNI+${i}`,
         "sections": {
             "mission_history": {
                 "title": "📜 Миссия, История и Лидерство",
-                "mission": `Миссия университета №${i} - развитие региона.`,
-                "history_excerpt": "Местный лидер образования.",
-                "achievements": ["Развитие региона"]
+                "mission": `Миссия университета №${i} - развитие регионального образования и инноваций.`,
+                "history_excerpt": "Основан недавно, но активно развивается в сфере IT.",
+                "achievements": ["Развитие региона", "Акцент на IT"]
             },
             "programs": {
                 "title": "📚 Академические программы",
-                "description": "Многопрофильные программы.",
+                "description": "Многопрофильные программы с фокусом на технологии.",
                 "list": [
                     { "program_name": "Менеджмент", "subjects_required": ["Математика", "География"] },
-                    { "program_name": "IT-системы", "subjects_required": ["Математика", "Информатика"] }
+                    { "program_name": "IT-системы", "subjects_required": ["Математика", "Информатика"] },
+                    { "program_name": "Экология", "subjects_required": ["Биология", "География"] }
                 ]
             },
             "admission": {
                 "title": "📝 Прием и Поступление",
-                "requirements": "ЕНТ.",
+                "requirements": "ЕНТ, средние баллы по профильным предметам.",
                 "deadlines": "Июль – Август.",
-                "scholarships": "Гранты МОН РК."
+                "scholarships": "Гранты МОН РК, скидки для местных абитуриентов."
             },
             "international": {
                 "title": "🌍 Международное сотрудничество",
-                "exchange_programs": "Обмен с соседними странами.",
-                "partner_universities": ["Региональные ВУЗы"]
+                "exchange_programs": "Обмен с соседними странами и программы повышения квалификации.",
+                "partner_universities": ["Региональные ВУЗы РФ и Узбекистана"]
             },
             "virtual_tour": {
                 "title": "🗺️ 3D-тур",
@@ -447,6 +447,11 @@ function renderUniversityCard(uni) {
     const primaryProgram = uni.sections.programs.list[0];
     const subjects = primaryProgram ? primaryProgram.subjects_required.join(', ') : 'Не указаны';
 
+    // Проверяем, находится ли ВУЗ в списке сравнения для установки правильного текста кнопки
+    const isCompared = comparisonList.includes(uni.id);
+    const compareButtonText = isCompared ? 'В сравнении (X)' : 'Сравнить';
+    const compareButtonClass = isCompared ? 'compare-btn active' : 'compare-btn';
+
     card.innerHTML = `
         <img src="${uni.image_url}" alt="${uni.name}">
         <div class="uni-card-content">
@@ -455,7 +460,7 @@ function renderUniversityCard(uni) {
             <p><strong>🌟 Профиль:</strong> ${primaryProgram ? primaryProgram.program_name : 'Общий'}</p>
             <p><strong>📚 ЕНТ (Проф.):</strong> ${subjects}</p>
             <button onclick="openModal('${uni.id}')">Подробнее</button>
-            <button class="compare-btn" data-id="${uni.id}" onclick="toggleComparison('${uni.id}', this)">Сравнить</button>
+            <button class="${compareButtonClass}" data-id="${uni.id}" onclick="toggleComparison('${uni.id}', this)">${compareButtonText}</button>
         </div>
     `;
     universityListElement.appendChild(card);
@@ -498,7 +503,7 @@ function filterUniversities() {
         filtered.forEach(renderUniversityCard);
     }
     
-    // Обновляем состояние кнопок сравнения
+    // Обновляем состояние кнопок сравнения, чтобы убедиться, что они актуальны
     updateComparisonButtons();
 }
 
@@ -696,7 +701,7 @@ const chatInput = chatModal ? chatModal.querySelector('.chat-footer input') : nu
 const sendButton = chatModal ? chatModal.querySelector('.chat-footer button') : null;
 
 let chatState = 'default';
-let quizAnswers = {};
+let chatQuizAnswers = {}; // Используем отдельный объект для чат-квиза
 
 // -----------------------------------------------------------------
 // Функции интерфейса чата (Чат-бот в правом нижнем углу)
@@ -741,12 +746,11 @@ function appendChatMessage(sender, text) {
  */
 function handleChatInput(query) {
     const lowerQuery = query.toLowerCase().trim();
-    let response = '';
     
     // --- Логика Квиза (Упрощенный вариант для чата) ---
     if (lowerQuery.includes('опрос') || lowerQuery.includes('рекомендация')) {
         chatState = 'quiz_start';
-        quizAnswers = {};
+        chatQuizAnswers = {};
         return "Отлично! Начнем с простого: какое направление вам ближе? **1) Техника/IT**, **2) Медицина/Естественные науки**, **3) Гуманитарные/Социальные науки**";
     }
 
@@ -761,9 +765,9 @@ function handleChatInput(query) {
         } else {
             return "Не совсем понял. Пожалуйста, выберите цифру: **1, 2 или 3**.";
         }
-        quizAnswers.major = major;
+        chatQuizAnswers.major = major;
         chatState = 'quiz_subject';
-        return `Вы выбрали **${major}**. Теперь выберите ваш второй профильный предмет ЕНТ: **Физика**, **Информатика**, **Химия** или **История мира**?`;
+        return `Вы выбрали **${major}**. Теперь выберите ваш второй профильный предмет ЕНТ: **Физика**, **Информатика**, **Химия** или **История мира**? (Математика обычно первый предмет для Техника/Экономики, Биология для Медицины/Естественных)`;
     }
 
     if (chatState === 'quiz_subject') {
@@ -772,10 +776,11 @@ function handleChatInput(query) {
         else if (lowerQuery.includes('информатика')) subject = 'Информатика';
         else if (lowerQuery.includes('химия')) subject = 'Химия';
         else if (lowerQuery.includes('история')) subject = 'История мира';
+        else if (lowerQuery.includes('география')) subject = 'География';
         else {
-            return "Пожалуйста, назовите один из предметов: **Физика**, **Информатика**, **Химия** или **История мира**.";
+            return "Пожалуйста, назовите один из предметов: **Физика**, **Информатика**, **Химия**, **История мира** или **География**.";
         }
-        quizAnswers.subject = subject;
+        chatQuizAnswers.subject = subject;
         chatState = 'default'; // Квиз завершен
         
         // Поиск рекомендаций на основе квиза
@@ -783,7 +788,7 @@ function handleChatInput(query) {
             uni.sections.programs.list.some(p => p.subjects_required.includes(subject))
         );
 
-        let finalRecommendation = `🚀 Отлично! Ваш профиль: **${quizAnswers.major}** с предметом **${subject}** (Математика - первый профильный для большинства).`;
+        let finalRecommendation = `🚀 Отлично! Ваш профиль: **${chatQuizAnswers.major}** с предметом **${subject}**.`;
         
         if (recommendedUni) {
             finalRecommendation += `\n\nЯ рекомендую вам обратить внимание на **${recommendedUni.name}** в ${recommendedUni.city}, который предлагает программы, требующие **${subject}**. Используйте фильтр каталога, чтобы увидеть больше вариантов!`;
@@ -801,8 +806,7 @@ function handleChatInput(query) {
     
     if (uni) {
         const primaryProgram = uni.sections.programs.list[0];
-        response = `Да, **${uni.name}** (${uni.city}) - это отличный выбор. Один из их ключевых профилей - **${primaryProgram.program_name}**, для которого требуются предметы ЕНТ: **${primaryProgram.subjects_required.join(' и ')}**.\n\nВы можете нажать кнопку "Подробнее" в каталоге, чтобы получить полную информацию!`;
-        return response;
+        return `Да, **${uni.name}** (${uni.city}) - это отличный выбор. Один из их ключевых профилей - **${primaryProgram.program_name}**, для которого требуются предметы ЕНТ: **${primaryProgram.subjects_required.join(' и ')}**.\n\nВы можете нажать кнопку "Подробнее" в каталоге, чтобы получить полную информацию!`;
     }
     
     // 2. Общие вопросы
@@ -882,7 +886,8 @@ const quizQuestions = [
 
 function startQuiz() {
     currentQuizStep = 0;
-    quizAnswers = {};
+    // Используем quizAnswers для этого опроса
+    window.quizAnswers = {};
     renderQuizStep();
     if (quizResults) quizResults.style.display = 'none';
 }
@@ -899,6 +904,7 @@ function renderQuizStep() {
     let html = `<p><strong>Вопрос ${currentQuizStep + 1}/${quizQuestions.length}:</strong> ${step.question}</p>`;
     
     step.options.forEach(option => {
+        // Убрал стили из кнопки, чтобы использовать CSS-стили
         html += `<button onclick="answerQuiz('${step.name}', '${option}')" style="margin-right: 10px; margin-bottom: 10px;">${option}</button>`;
     });
 
@@ -906,7 +912,7 @@ function renderQuizStep() {
 }
 
 function answerQuiz(name, value) {
-    quizAnswers[name] = value;
+    window.quizAnswers[name] = value;
     currentQuizStep++;
     renderQuizStep();
 }
@@ -919,9 +925,9 @@ function showQuizResults() {
     // Пауза для имитации работы AI
     setTimeout(() => {
         
-        const finalMajor = quizAnswers.major || 'Не определено';
-        const finalSubject = quizAnswers.subject || 'Не определено';
-        const finalCity = quizAnswers.city === 'Другой город/Не важно' ? '' : quizAnswers.city;
+        const finalMajor = window.quizAnswers.major || 'Не определено';
+        const finalSubject = window.quizAnswers.subject || 'Не определено';
+        const finalCity = window.quizAnswers.city === 'Другой город/Не важно' ? '' : window.quizAnswers.city;
         
         let recommendationText = `<h3>🎯 Ваша Рекомендация Nurym AI</h3>`;
         recommendationText += `<p>На основании ваших ответов, ваше предпочтительное направление: <strong>${finalMajor}</strong>. </p>`;
@@ -947,7 +953,7 @@ function showQuizResults() {
     }, 1500); 
 }
 
-// Привязка функции startQuiz к глобальному окну
+// Привязка функций к глобальному окну для доступа из HTML
 window.startQuiz = startQuiz;
 window.answerQuiz = answerQuiz;
 window.filterUniversities = filterUniversities;
