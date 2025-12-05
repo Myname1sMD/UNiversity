@@ -1,2 +1,2 @@
 # UNiversity
-Hackathon project: DataHub UniSense — подбор вузов, MBTI, рейтинги, AI-помощник
+Hackathon project: DataHub UniSense — подбор вузов, рейтинги, AI-помощник
