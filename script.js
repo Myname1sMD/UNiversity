@@ -317,4 +317,101 @@ window.onload = function() {
             closeModal('details-modal');
         }
     }
-};
+}// =================================================================
+// ЧАСТЬ 3: ФУНКЦИОНАЛЬНОСТЬ ЧАТ-БОТА NURUM AI
+// =================================================================
+
+const chatModal = document.querySelector('.chat-modal');
+const chatButton = document.getElementById('nurym-chat-btn');
+const closeChatButton = document.querySelector('.close-chat');
+const chatBody = document.querySelector('.chat-body');
+const chatInput = document.querySelector('.chat-footer input');
+const sendButton = document.querySelector('.chat-footer button');
+
+let isChatOpen = false;
+
+// 1. ФУНКЦИЯ ПЕРЕКЛЮЧЕНИЯ ВИДИМОСТИ ЧАТА
+function toggleChat() {
+    isChatOpen = !isChatOpen;
+    chatModal.style.display = isChatOpen ? 'flex' : 'none';
+    chatButton.style.display = isChatOpen ? 'none' : 'block'; // Скрываем кнопку при открытии модалки
+    if (isChatOpen) {
+        chatInput.focus();
+        scrollToBottom();
+    }
+}
+
+// 2. ФУНКЦИЯ ОТОБРАЖЕНИЯ СООБЩЕНИЯ
+function displayMessage(text, sender) {
+    const messageDiv = document.createElement('div');
+    messageDiv.classList.add('message', sender);
+    messageDiv.textContent = text;
+    chatBody.appendChild(messageDiv);
+    scrollToBottom();
+}
+
+// 3. АВТОПРОКРУТКА
+function scrollToBottom() {
+    chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+// 4. БАЗОВАЯ ЛОГИКА ОТВЕТОВ NURUM (ПРОСТЫЕ ПРАВИЛА)
+function generateNurumResponse(userMessage) {
+    const msg = userMessage.toLowerCase().trim();
+
+    if (msg.includes('привет') || msg.includes('здравствуй')) {
+        return "Привет! Я Нурым, ваш AI-консультант по выбору ВУЗов. Чем я могу вам помочь сегодня?";
+    } else if (msg.includes('кбту') || msg.includes('казахстанско-британский')) {
+        return "КБТУ (Казахстанско-Британский Технический Университет) — лидер в области IT и инженерии в Алматы. Профильные предметы ЕНТ: Математика + Физика/Информатика.";
+    } else if (msg.includes('нужна помощь') || msg.includes('помоги')) {
+        return "Я могу помочь вам найти ВУЗ по предметам ЕНТ, рассказать о конкретном университете или дать совет по поступлению. Задавайте свой вопрос!";
+    } else if (msg.includes('ЕНУ') || msg.includes('евразийский')) {
+        return "ЕНУ им. Л.Н. Гумилева — один из крупнейших классических университетов в Астане с широким спектром специальностей.";
+    } else if (msg.includes('медицина') || msg.includes('врач')) {
+        return "Для медицинских специальностей, таких как 'Общая медицина', вам нужны предметы **Биология** и **Химия**. Рекомендую посмотреть КазНМУ или КМУ.";
+    } else if (msg.includes('спасибо') || msg.includes('благодарю')) {
+        return "Рад был помочь! Удачи вам в выборе университета! 🎓";
+    } else {
+        // Ответ по умолчанию
+        return "Извините, пока я могу ответить только на общие вопросы о ВУЗах и ЕНТ. Попробуйте задать вопрос о конкретном университете.";
+    }
+}
+
+// 5. ФУНКЦИЯ ОТПРАВКИ СООБЩЕНИЯ
+function sendMessage() {
+    const userMessage = chatInput.value.trim();
+    if (userMessage === "") return;
+
+    // 1. Отобразить сообщение пользователя
+    displayMessage(userMessage, 'user');
+    chatInput.value = ''; // Очистить поле ввода
+
+    // 2. Сгенерировать и отобразить ответ Нурым через небольшую задержку
+    setTimeout(() => {
+        const nurumResponse = generateNurumResponse(userMessage);
+        displayMessage(nurumResponse, 'nurym');
+    }, 500); // Имитация "печатания"
+}
+
+// 6. ДОБАВЛЕНИЕ СЛУШАТЕЛЕЙ СОБЫТИЙ
+document.addEventListener('DOMContentLoaded', () => {
+    // Привязываем функцию открытия/закрытия к кнопкам
+    chatButton.addEventListener('click', toggleChat);
+    closeChatButton.addEventListener('click', toggleChat);
+    
+    // Привязываем функцию отправки к кнопке
+    sendButton.addEventListener('click', sendMessage);
+
+    // Отправка по нажатию Enter
+    chatInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            sendMessage();
+        }
+    });
+
+    // Приветственное сообщение от Нурым
+    setTimeout(() => {
+        displayMessage("Здравствуйте! Я Нурым, ваш AI-консультант. Спросите меня о любом университете Казахстана.", 'nurym');
+    }, 1000);
+});
+// =================================================================;
