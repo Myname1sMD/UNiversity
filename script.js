@@ -668,7 +668,154 @@ window.startQuiz = function() {
 // ЧАСТЬ 3: ФУНКЦИОНАЛЬНОСТЬ ЧАТ-БОТА NURUM AI
 // (Добавлено по вашему запросу)
 // =================================================================
+// =================================================================
+// ЧАСТЬ 0: ДАННЫЕ ДЛЯ AI-ОПРОСНИКА
+// =================================================================
+const nurymQuiz = [
+    {
+        id: 1,
+        question: "Что вам нравится больше всего?",
+        options: [
+            { text: "Анализировать данные, решать сложные задачи и строить модели (IT/Инженерия).", score: { technical: 3, business: 1 } },
+            { text: "Общаться, изучать языки, писать тексты или заниматься историей (Гуманитарные).", score: { humanitarian: 3 } },
+            { text: "Помогать людям, изучать биологию, химию и работать с живыми системами (Медицина).", score: { medical: 3 } },
+        ]
+    },
+    {
+        id: 2,
+        question: "Какая ваша сильная сторона в школе?",
+        options: [
+            { text: "Математика, Физика, Информатика.", score: { technical: 2, it: 2 } },
+            { text: "Иностранные языки, История, Литература.", score: { humanitarian: 2 } },
+            { text: "Биология, Химия, География.", score: { medical: 2, technical: 1 } },
+            { text: "Экономика, Право, Обществознание.", score: { business: 2, humanitarian: 1 } },
+        ]
+    },
+    {
+        id: 3,
+        question: "Что вы предпочтете делать в свободное время?",
+        options: [
+            { text: "Разбираться в работе гаджетов, компьютеров, программировать.", score: { technical: 2, it: 3 } },
+            { text: "Изучать фондовые рынки, читать о стартапах и личных финансах.", score: { business: 2 } },
+            { text: "Волонтерить, следить за здоровьем и новостями медицины.", score: { medical: 2 } }
+        ]
+    }
+];
 
+// =================================================================
+// ЧАСТЬ 4: ЛОГИКА ОПРОСА (QUIZ) ДЛЯ NURUM AI (Обновлено)
+// =================================================================
+
+let currentQuizStep = 0;
+let quizScores = { technical: 0, it: 0, business: 0, medical: 0, humanitarian: 0 };
+
+const quizContainer = document.getElementById('quiz-container');
+const quizResults = document.getElementById('quiz-results');
+
+function startQuiz() {
+    currentQuizStep = 0;
+    quizScores = { technical: 0, it: 0, business: 0, medical: 0, humanitarian: 0 };
+    quizContainer.style.display = 'block';
+    quizResults.style.display = 'none';
+    displayQuizQuestion();
+}
+
+function displayQuizQuestion() {
+    if (currentQuizStep < nurymQuiz.length) {
+        const q = nurymQuiz[currentQuizStep];
+        let html = `<p><strong>Вопрос ${currentQuizStep + 1} из ${nurymQuiz.length}:</strong> ${q.question}</p>`;
+        
+        q.options.forEach((option) => {
+            // Преобразуем объект score в строку JSON для передачи
+            const scoreData = JSON.stringify(option.score);
+            
+            html += `<button class="quiz-option-btn" 
+                             onclick="answerQuiz('${scoreData}')" 
+                             style="margin-right: 10px; margin-bottom: 10px; background-color: var(--primary-light); color: white;">
+                         ${option.text}
+                     </button>`;
+        });
+        quizContainer.innerHTML = html;
+    } else {
+        showQuizResults();
+    }
+}
+
+function answerQuiz(scoreDataString) {
+    // Парсим строку JSON обратно в объект
+    const scores = JSON.parse(scoreDataString);
+    
+    // Суммируем баллы
+    for (const key in scores) {
+        if (quizScores.hasOwnProperty(key)) {
+            quizScores[key] += scores[key];
+        }
+    }
+    
+    currentQuizStep++;
+    displayQuizQuestion();
+}
+
+function showQuizResults() {
+    quizContainer.style.display = 'none';
+    quizResults.style.display = 'block';
+
+    const recText = analyzeQuizScores(quizScores);
+    
+    quizResults.innerHTML = `
+        <h3>✨ Ваша рекомендация от Nurym AI!</h3>
+        ${recText}
+        <button onclick="resetQuiz()" style="margin-top: 15px; background-color: var(--success);">Начать заново</button>
+    `;
+}
+
+function analyzeQuizScores(scores) {
+    let maxScore = -1;
+    let mainDirection = 'Общий профиль';
+
+    // Находим направление с максимальным баллом
+    for (const key in scores) {
+        if (scores[key] > maxScore) {
+            maxScore = scores[key];
+            mainDirection = key;
+        }
+    }
+    
+    const maxDirectionName = {
+        technical: 'Технические науки (Инженерия, Физика)',
+        it: 'Информационные технологии (Программирование, Data Science)',
+        business: 'Бизнес, Финансы и Экономика',
+        medical: 'Медицина и Здравоохранение',
+        humanitarian: 'Гуманитарные и Социальные науки (Языки, История, Юриспруденция)'
+    };
+
+    let resultHtml = `<p>На основе ваших ответов, ваше основное направление — **${maxDirectionName[mainDirection] || mainDirection}** (с общим баллом: **${maxScore}**).</p>`;
+
+    // Дополнительные рекомендации ВУЗов с учетом КарТУ
+    let uniRecs = [];
+    if (mainDirection === 'it' || mainDirection === 'technical') {
+        uniRecs = ['КБТУ', 'AITU', 'МУИТ (IITU)', 'Satbayev University', 'КарТУ им. Сагинова'];
+    } else if (mainDirection === 'medical') {
+        uniRecs = ['КазНМУ', 'Карагандинский медицинский университет'];
+    } else if (mainDirection === 'humanitarian' || mainDirection === 'business') {
+        uniRecs = ['КазНУ им. аль-Фараби', 'ЕНУ им. Гумилева', 'КазНПУ'];
+    }
+
+    if (uniRecs.length > 0) {
+        resultHtml += `<p><strong>Рекомендуемые ВУЗы:</strong> ${uniRecs.join(', ')}.</p>`;
+    } else {
+        resultHtml += "<p>Пожалуйста, попробуйте ответить более определенно, чтобы получить конкретную рекомендацию.</p>";
+    }
+
+    return resultHtml;
+}
+
+function resetQuiz() {
+    quizResults.style.display = 'none';
+    quizContainer.style.display = 'block';
+    quizContainer.innerHTML = '<p>Начните опрос, чтобы получить рекомендацию профессии и ВУЗа.</p><button onclick="startQuiz()">Начать опрос</button>';
+}
+// ... (остальные функции - filterUniversities, displayModal, и т.д.)
 const chatModalElement = document.getElementById('nurym-chat-modal');
 const chatButton = document.getElementById('nurym-chat-btn');
 const closeChatButton = document.querySelector('.close-chat');
