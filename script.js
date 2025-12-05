@@ -6,7 +6,7 @@ const universityData = [
         "id": "kaznu",
         "name": "Казахский национальный университет им. аль-Фараби (КазНУ)",
         "city": "Алматы",
-        "image_url": "https://via.placeholder.com/300x200?text=KAZNU",
+        "image_url": "https://upload.wikimedia.org/wikipedia/de/thumb/b/b5/Al_Farabi_Universität_2024.svg/800px-Al_Farabi_Universität_2024.svg.png",
         "sections": {
             "mission_history": {
                 "title": "📜 Миссия, История и Лидерство",
@@ -44,7 +44,7 @@ const universityData = [
         "id": "nu",
         "name": "Назарбаев Университет (НУ)",
         "city": "Нур-Султан (Астана)",
-        "image_url": "https://via.placeholder.com/300x200?text=NU", 
+        "image_url": "https://avatars.mds.yandex.net/i?id=49cebe997c861eaf4ee540954cb38e469876d7ef-3322605-images-thumbs&n=13", 
         "sections": {
             "mission_history": {
                 "title": "📜 Миссия, История и Лидерство",
@@ -74,7 +74,7 @@ const universityData = [
             },
             "virtual_tour": {
                 "title": "🗺️ 3D-тур",
-                "link": "https://www.youtube.com/embed/d3H_j_QYfC0" 
+                "link": "Source: Nazarbayev University https://share.google/nnF2Ymi3pseICwuh3" 
             }
         }
     },
