@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
 let chatState = 'default'; // default, asking_major, asking_subject
 let chatResponseData = {}; // Для сбора ответов пользователя
 
-// Получение элементов (проверка на их существование выполняется ниже при привязке событий)
+// Получение элементов
 const chatButton = document.getElementById('nurym-chat-btn');
 const chatWindow = document.getElementById('nurym-chat-window');
 const chatMessages = document.getElementById('chat-messages');
@@ -351,6 +351,7 @@ function generateAiResponse(query) {
 }
 
 function handleUserInput() {
+    if (!chatInput) return; // Защита от null
     const userInput = chatInput.value.trim();
     if (userInput === '') return;
 
