@@ -3,76 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nurym AI: Ваш помощник по выбору ВУЗа</title>
+    <title>Платформа Выбора ВУЗов | Nurym AI</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>">
 </head>
 <body>
 
     <header>
-        <h1>🎓 Nurym AI: Помощник по выбору ВУЗа в Казахстане</h1>
-        <p>Используйте фильтры или пообщайтесь с нашим AI-консультантом!</p>
+        <h1>🏛️ Выбери свой университет!</h1>
     </header>
 
-    <section class="filters">
-        <h2>Фильтр ВУЗов</h2>
-        <div class="filter-group">
-            
-            <label for="city-filter">Город:</label>
-            <select id="city-filter">
-                <option value="all">Все города</option>
-                <option value="Астана">Астана</option>
-                <option value="Алматы">Алматы</option>
-                <option value="Караганда">Караганда</option>
-            </select>
-
-            <label for="type-filter">Тип ВУЗа:</label>
-            <select id="type-filter">
-                <option value="all">Все типы</option>
-                <option value="Многопрофильный">Многопрофильный</option>
-                <option value="Технический">Технический</option>
-            </select>
-            
-            <label for="subject-filter">Профильный предмет (ЕНТ):</label>
-            <select id="subject-filter">
-                <option value="all">Любой предмет</option>
-                <option value="Физика">Физика</option>
-                <option value="Информатика">Информатика</option>
-                <option value="Биология">Биология</option>
-                <option value="Химия">Химия</option>
-                <option value="Всемирная история">История</option>
-                <option value="География">География</option>
-            </select>
-            
-        </div>
-    </section>
-
-    <section class="catalog">
-        <h2>Каталог Университетов</h2>
-        <div id="catalog-container" class="catalog-grid">
+    <main>
+        <section id="nurym-assistant">
+            <h2>🤖 Nurym: Твой AI-консультант</h2>
+            <div id="quiz-container">
+                <p>Начните опрос, чтобы получить рекомендацию профессии и ВУЗа.</p>
+                <button onclick="startQuiz()">Начать опрос</button>
             </div>
-    </section>
+            <div id="quiz-results" class="nurym-output" style="display:none;"></div>
+        </section>
 
-    <button id="nurym-chat-btn" title="Открыть чат с Nurym AI">
-        <i class="fas fa-robot"></i>
-    </button>
-    
-    <div id="nurym-chat-window" class="chat-window">
-        <div class="chat-header">
-            <h3>🤖 Nurym AI Консультант</h3>
-            <span class="close-btn" onclick="document.getElementById('nurym-chat-window').classList.remove('open')">&times;</span>
-        </div>
-        <div id="chat-messages" class="chat-messages">
+        <hr>
+
+        <section id="university-list-section">
+            <h2>🎓 Каталог Университетов</h2>
+            <div class="filters">
+                <label for="city-filter">Город:</label>
+                <select id="city-filter">
+                    <option value="">(Все города)</option>
+                    <option value="Алматы">Алматы</option>
+                    <option value="Нур-Султан (Астана)">Астана (Нур-Султан)</option>
+                    <option value="Караганда">Караганда</option>
+                </select>
+                
+                <label for="subject1">Предмет 1 (ЕНТ):</label>
+                <select id="subject1">
+                    <option value="">(Не выбрано)</option>
+                    <option value="Математика">Математика</option>
+                    <option value="Физика">Физика</option>
+                    <option value="Биология">Биология</option>
+                    <option value="История мира">История мира</option>
+                    <option value="География">География</option>
+                </select>
+
+                <label for="subject2">Предмет 2 (ЕНТ):</label>
+                <select id="subject2">
+                    <option value="">(Не выбрано)</option>
+                    <option value="Физика">Физика</option>
+                    <option value="Информатика">Информатика</option>
+                    <option value="Химия">Химия</option>
+                    <option value="Иностранный язык">Иностранный язык</option>
+                    <option value="География">География</option>
+                </select>
+
+                <button onclick="filterUniversities()">Применить фильтр</button>
             </div>
-        <div class="chat-input-area">
-            <input type="text" id="chat-input" placeholder="Спросите меня о ВУЗе или 'помоги выбрать профессию'">
-            <button id="send-btn">Отправить</button>
+            
+            <div id="university-list">
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="comparison-section" style="display:none;">
+            <h2>📊 Сравнение ВУЗов</h2>
+            <div id="comparison-table">
+            </div>
+            <button onclick="clearComparison()" style="background-color: #dc3545; margin-top: 15px;">Очистить список сравнения</button>
+        </section>
+
+    </main>
+
+    <div id="details-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <div id="modal-body">
+            </div>
         </div>
     </div>
 
-    <footer>
-        <p>&copy; 2025 Nurym AI. Все права защищены.</p>
-    </footer>
+    <button id="nurym-chat-btn">Чат с Nurym AI</button>
+
+    <div id="nurym-chat-modal" class="chat-modal">
+        <div class="chat-header">
+            <span>🤖 Nurym AI Консультант</span>
+            <span class="close-chat">&times;</span>
+        </div>
+        <div class="chat-body">
+        </div>
+        <div class="chat-footer">
+            <input type="text" placeholder="Задайте вопрос о ВУЗе или ЕНТ...">
+            <button>Отправить</button>
+        </div>
+    </div>
+
 
     <script src="script.js"></script>
 </body>
