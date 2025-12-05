@@ -1,174 +1,303 @@
-/* Общие стили */
+/* Переменные для Цветовой Палитры */
+:root {
+    --primary-dark: #003B64; /* Темно-синий для шапки */
+    --primary-light: #007bff; /* Оригинальный синий для акцентов */
+    --success: #17A2B8; /* Бирюзовый для основных кнопок */
+    --warning: #FFC107; /* Желтый для Nurym */
+    --bg-light: #F0F4F8; /* Светлый фон */
+    --text-color: #333;
+    --card-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f7f6;
-    color: #333;
+    background-color: var(--bg-light);
+    color: var(--text-color);
 }
 
 header {
-    background-color: #007bff;
+    background-color: var(--primary-dark);
     color: white;
-    padding: 20px;
+    padding: 25px 20px;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
 }
 
-h1, h2, h3 {
-    color: #004085;
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 section {
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 1200px;
+    margin-bottom: 40px;
+    padding: 30px 20px;
     background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
-/* Стили фильтров */
-.filters h2 {
-    margin-top: 0;
-    color: #007bff;
+section h2 {
+    color: var(--primary-dark);
+    font-size: 1.8em;
+    margin-bottom: 25px;
+    border-bottom: 3px solid var(--success); /* Акцентная линия */
+    display: inline-block;
+    padding-bottom: 5px;
 }
 
-.filter-group {
+/* --- Фильтры и кнопки --- */
+.filters {
     display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
+    gap: 15px;
     align-items: center;
+    flex-wrap: wrap;
+    padding-bottom: 20px;
 }
 
-.filter-group label {
+.filters label {
     font-weight: bold;
-    color: #555;
+    color: var(--primary-dark);
 }
 
-.filter-group select {
+.filters select {
     padding: 8px;
-    border: 1px solid #ccc;
     border-radius: 4px;
-    min-width: 150px;
+    border: 1px solid #ccc;
 }
 
-/* Стили каталога */
-.catalog-grid {
+button {
+    background-color: var(--success);
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #138496;
+    transform: translateY(-1px);
+}
+/* Стили для кнопки сравнения, когда она активна */
+button.compare-btn.active {
+    background-color: var(--primary-dark);
+}
+button.compare-btn.active:hover {
+    background-color: #002D4F;
+}
+
+
+/* --- Карточки университетов --- */
+#university-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    gap: 25px;
     margin-top: 20px;
 }
 
-.university-card {
+.uni-card {
     border: 1px solid #e0e0e0;
+    border-radius: 12px; /* Более мягкие углы */
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.uni-card:hover {
+    transform: translateY(-5px); /* Небольшое поднятие */
+    box-shadow: var(--card-shadow); 
+    cursor: pointer;
+}
+
+.uni-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.uni-card-content {
+    padding: 15px;
+}
+
+.uni-card h3 {
+    color: var(--primary-dark);
+    margin-top: 0;
+    font-size: 1.4em;
+}
+
+.uni-card button {
+    margin-right: 10px;
+    margin-top: 10px;
+    padding: 8px 12px;
+    font-size: 0.9em;
+}
+
+/* --- Секция Nurym --- */
+#nurym-assistant button {
+    background-color: var(--warning);
+    color: var(--primary-dark);
+    font-weight: bold;
+}
+#nurym-assistant button:hover {
+    background-color: #e0a800;
+}
+
+.nurym-output {
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
     padding: 20px;
     border-radius: 8px;
-    transition: transform 0.2s, box-shadow 0.2s;
-    background-color: #ffffff;
+    margin-top: 20px;
+}
+.nurym-output h3 {
+    color: #856404;
 }
 
-.university-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+/* --- Стили для таблицы сравнения --- */
+#comparison-table {
+    margin-top: 20px;
+    overflow-x: auto; 
 }
 
-.university-card h3 {
-    color: #007bff;
-    margin-top: 0;
-    border-bottom: 2px solid #e0e0e0;
-    padding-bottom: 10px;
-}
-
-.program-list {
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
     margin-top: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.program-item {
-    padding: 5px 0;
-    border-bottom: 1px dotted #eee;
-}
-
-.program-name {
-    font-weight: bold;
-    color: #333;
-}
-
-.subjects-required {
+.comparison-table th, .comparison-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+    vertical-align: top;
     font-size: 0.9em;
-    color: #666;
 }
 
-.no-results {
-    color: #dc3545;
-    font-size: 1.1em;
-    font-style: italic;
-    grid-column: 1 / -1; /* Занимает всю ширину сетки */
+.comparison-table th {
+    background-color: #EBF5FF;
+    color: var(--primary-dark);
+    width: 20%; 
+    font-weight: bold;
 }
 
-/* Стили футера */
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #333;
-    color: white;
+.comparison-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+
+/* --- Стили для Модального Окна (Детализация) --- */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow-y: auto; 
+    background-color: rgba(0,0,0,0.7); 
+    animation: fadeIn 0.3s;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto; 
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%; 
+    max-width: 900px;
+    box-shadow: 0 5px 30px rgba(0,0,0,0.5);
+    position: relative;
+    animation: slideInTop 0.4s;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes slideInTop {
+    from {top: -300px; opacity: 0}
+    to {top: 5%; opacity: 1}
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--primary-dark);
+    text-decoration: none;
+}
+
+.uni-sections h4 {
+    color: var(--success);
+    border-bottom: 2px solid var(--success);
+    padding-bottom: 5px;
     margin-top: 30px;
+    font-size: 1.25em;
 }
 
-/* =================================================================
-   СТИЛИ ЧАТ-БОТА NURUM AI
-   ================================================================= */
+.uni-sections ul {
+    padding-left: 20px;
+    list-style-type: square;
+}
 
-/* Кнопка открытия чата */
+/* --- Стили для чат-бота Nurym --- */
+
 #nurym-chat-btn {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-color: #28a745; /* Зеленый цвет */
-    color: white;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    transition: background-color 0.2s;
+    bottom: 20px;
+    right: 20px;
+    z-index: 200;
+    width: 180px; /* Увеличим кнопку */
+    height: 55px;
+    border-radius: 28px;
+    background-color: var(--warning);
+    color: var(--primary-dark);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    font-weight: bold;
+    font-size: 18px;
+    transition: transform 0.2s, background-color 0.2s;
 }
-
 #nurym-chat-btn:hover {
-    background-color: #218838;
+    background-color: #e0a800;
+    transform: scale(1.05);
+}
+#nurym-chat-btn::before {
+    content: "🤖 ";
+    margin-right: 5px;
 }
 
-/* Окно чата */
-.chat-window {
+.chat-modal {
     position: fixed;
-    bottom: 100px;
-    right: 30px;
+    bottom: 80px;
+    right: 20px;
     width: 350px;
-    height: 450px;
+    height: 500px;
     background-color: white;
     border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-    display: flex;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+    z-index: 200;
+    display: none; /* Изначально скрыт, будет управляться JS */
     flex-direction: column;
-    z-index: 999;
-    /* Скрыто по умолчанию */
-    transform: scale(0);
-    opacity: 0;
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-    transform-origin: bottom right;
-}
-
-.chat-window.open {
-    transform: scale(1);
-    opacity: 1;
 }
 
 .chat-header {
-    background-color: #007bff;
+    background-color: var(--primary-dark);
     color: white;
     padding: 15px;
     border-top-left-radius: 10px;
@@ -176,68 +305,80 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.chat-header h3 {
-    color: white;
-    margin: 0;
     font-size: 1.1em;
 }
 
-.chat-messages {
+.close-chat {
+    font-size: 24px;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s;
+}
+.close-chat:hover {
+    color: var(--warning);
+}
+
+.chat-body {
     flex-grow: 1;
     padding: 15px;
     overflow-y: auto;
-    background-color: #f7f7f7;
+    border-bottom: 1px solid #eee;
+    display: flex; /* Для корректного размещения сообщений */
+    flex-direction: column;
 }
 
-/* Стили сообщений */
-.user-message, .nurym-message {
-    margin-bottom: 10px;
-    max-width: 80%;
+.chat-footer {
+    display: flex;
     padding: 10px;
-    border-radius: 15px;
-    line-height: 1.4;
-    word-wrap: break-word;
 }
 
-.user-message {
-    background-color: #dcf8c6; /* Светло-зеленый для пользователя */
+.chat-footer input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.chat-footer button {
+    background-color: var(--primary-light);
+    padding: 5px 10px;
+}
+
+.message {
+    padding: 10px 15px;
+    border-radius: 18px;
+    margin-bottom: 10px;
+    max-width: 85%;
+    word-wrap: break-word;
+    font-size: 14px;
+}
+
+.message.user {
+    background-color: #EBF5FF;
+    color: var(--primary-dark);
     margin-left: auto;
     border-bottom-right-radius: 2px;
-    text-align: right;
 }
 
-.nurym-message {
-    background-color: #e9e9eb; /* Светло-серый для AI */
+.message.nurym {
+    background-color: #f0f0f0;
+    color: var(--text-color);
     margin-right: auto;
     border-bottom-left-radius: 2px;
 }
 
-.chat-input-area {
-    display: flex;
-    border-top: 1px solid #ccc;
-    padding: 10px;
-}
-
-#chat-input {
-    flex-grow: 1;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    margin-right: 8px;
-}
-
-#send-btn {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-#send-btn:hover {
-    background-color: #0056b3;
+/* Медиа-запрос для адаптивности фильтров */
+@media (max-width: 768px) {
+    .filters {
+        flex-direction: column; 
+        align-items: stretch;
+    }
+    .filters label, .filters select, .filters button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .filters select {
+        box-sizing: border-box; /* Важно, чтобы select не выходил за пределы */
+    }
 }
