@@ -1,0 +1,193 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+section {
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* --- Фильтры и кнопки --- */
+.filters {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-bottom: 20px;
+}
+
+.filters label {
+    font-weight: bold;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* --- Карточки университетов --- */
+#university-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.uni-card {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.uni-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.uni-card-content {
+    padding: 15px;
+}
+
+.uni-card h3 {
+    color: #007bff;
+    margin-top: 0;
+}
+
+.uni-card button {
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+/* --- Секция Nurym --- */
+#nurym-assistant button {
+    background-color: #ffc107;
+    color: #333;
+    font-weight: bold;
+}
+#nurym-assistant button:hover {
+    background-color: #e0a800;
+}
+
+.nurym-output {
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+    padding: 20px;
+    border-radius: 4px;
+}
+.nurym-output h3 {
+    color: #856404;
+}
+
+/* --- Стили для таблицы сравнения --- */
+#comparison-table {
+    margin-top: 20px;
+    overflow-x: auto; 
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.comparison-table th, .comparison-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.comparison-table th {
+    background-color: #e6f7ff;
+    color: #007bff;
+    width: 20%; 
+}
+
+.comparison-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+
+/* --- Стили для Модального Окна (Детализация) --- */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 100; /* Высокий z-index */
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow-y: auto; 
+    background-color: rgba(0,0,0,0.7); 
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto; 
+    padding: 30px;
+    border-radius: 8px;
+    width: 90%; 
+    max-width: 900px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.4);
+    position: relative;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 36px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+.uni-sections h4 {
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+    margin-top: 25px;
+}
+
+.uni-sections ul {
+    padding-left: 20px;
+}
+
