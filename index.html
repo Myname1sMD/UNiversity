@@ -3,47 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academia Select: University Guide</title>
-    <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=Times+New+Roman:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css"> 
+    <title>Платформа Выбора ВУЗов | Nurym AI</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>">
 </head>
 <body>
 
     <header>
-        <h1>ACADEMIA SELECT</h1>
-        <p>Classic University Guide</p>
+        <h1>🏛️ Выбери свой университет!</h1>
     </header>
 
     <main>
-        
-        <section class="hero-banner">
-            <h2>FIND YOUR LEGACY</h2>
-            <img src="https://via.placeholder.com/1200x400?text=Stately+University+Facade" alt="Классический фасад университета" style="width: 100%; height: auto; border: 1px solid #c8a06e; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+        <section id="nurym-assistant">
+            <h2>🤖 Nurym: Твой AI-консультант</h2>
+            <div id="quiz-container">
+                <p>Начните опрос, чтобы получить рекомендацию профессии и ВУЗа.</p>
+                <button onclick="startQuiz()">Начать опрос</button>
+            </div>
+            <div id="quiz-results" class="nurym-output" style="display:none;"></div>
         </section>
 
-        <section>
-            <h3>🔍 Фильтры</h3>
+        <hr>
+
+        <section id="university-list-section">
+            <h2>🎓 Каталог Университетов</h2>
             <div class="filters">
                 <label for="city-filter">Город:</label>
                 <select id="city-filter">
-                    <option value="">Все</option>
-                    <option value="Almaty">Алматы</option>
-                    <option value="Astana">Астана</option>
-                </select>
-
-                <label for="program-filter">Программа:</label>
-                <select id="program-filter">
-                    <option value="">Все</option>
-                    <option value="IT">Информационные Технологии</option>
-                    <option value="Law">Юриспруденция</option>
+                    <option value="">(Все города)</option>
+                    <option value="Алматы">Алматы</option>
+                    <option value="Нур-Султан (Астана)">Астана (Нур-Султан)</option>
+                    <option value="Караганда">Караганда</option>
                 </select>
                 
-                <button onclick="applyFilters()">Применить Фильтры</button>
+                <label for="subject1">Предмет 1 (ЕНТ):</label>
+                <select id="subject1">
+                    <option value="">(Не выбрано)</option>
+                    <option value="Математика">Математика</option>
+                    <option value="Физика">Физика</option>
+                    <option value="Биология">Биология</option>
+                    <option value="История мира">История мира</option>
+                    <option value="География">География</option>
+                </select>
+
+                <label for="subject2">Предмет 2 (ЕНТ):</label>
+                <select id="subject2">
+                    <option value="">(Не выбрано)</option>
+                    <option value="Физика">Физика</option>
+                    <option value="Информатика">Информатика</option>
+                    <option value="Химия">Химия</option>
+                    <option value="Иностранный язык">Иностранный язык</option>
+                    <option value="География">География</option>
+                </select>
+
+                <button onclick="filterUniversities()">Применить фильтр</button>
+            </div>
+            
+            <div id="university-list">
             </div>
         </section>
 
-        <section>
-            <h3>🏛️ Список Университетов</h3>
-            <div id="university-list">
-                </div>
+        <hr>
+
+        <section id="comparison-section" style="display:none;">
+            <h2>📊 Сравнение ВУЗов</h2>
+            <div id="comparison-table">
+            </div>
+            <button onclick="clearComparison()" style="background-color: #dc3545; margin-top: 15px;">Очистить список сравнения</button>
         </section>
+
+    </main>
+
+    <div id="details-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <div id="modal-body">
+                </div>
+        </div>
+    </div>
+
+    <button id="nurym-chat-btn">Чат с Nurym AI</button>
+
+    <div id="nurym-chat-modal" class="chat-modal">
+        <div class="chat-header">
+            <span>🤖 Nurym AI Консультант</span>
+            <span class="close-chat">&times;</span>
+        </div>
+        <div class="chat-body">
+            </div>
+        <div class="chat-footer">
+            <input type="text" placeholder="Задайте вопрос о ВУЗе или ЕНТ...">
+            <button>Отправить</button>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
