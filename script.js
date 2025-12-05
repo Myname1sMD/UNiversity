@@ -1,6 +1,5 @@
 // =================================================================
-// ЧАСТЬ 1: БАЗА ДАННЫХ (UNIVERSITY DATA)
-// (Добавлены заглушки для полноты массива до 13 ВУЗов)
+// ЧАСТЬ 1: БАЗА ДАННЫХ (13 УНИВЕРСИТЕТОВ)
 // =================================================================
 const universityData = [
     {
@@ -45,7 +44,7 @@ const universityData = [
         "id": "nu",
         "name": "Назарбаев Университет (НУ)",
         "city": "Нур-Султан (Астана)",
-        "image_url": "https://via.placeholder.com/300x200?text=NU",
+        "image_url": "https://via.placeholder.com/300x200?text=NU", 
         "sections": {
             "mission_history": {
                 "title": "📜 Миссия, История и Лидерство",
@@ -75,7 +74,7 @@ const universityData = [
             },
             "virtual_tour": {
                 "title": "🗺️ 3D-тур",
-                "link": "https://www.youtube.com/embed/d3H_j_QYfC0"
+                "link": "https://www.youtube.com/embed/d3H_j_QYfC0" 
             }
         }
     },
@@ -113,7 +112,7 @@ const universityData = [
             },
             "virtual_tour": {
                 "title": "🗺️ 3D-тур",
-                "link": "https://www.youtube.com/embed/n4qN-d9N8U0" 
+                "link": "https://www.youtube.com/embed/n4qN-d9N8U0"
             }
         }
     },
@@ -151,7 +150,7 @@ const universityData = [
             },
             "virtual_tour": {
                 "title": "🗺️ 3D-тур",
-                "link": "https://www.youtube.com/embed/d3H_j_QYfC0" 
+                "link": "https://www.youtube.com/embed/d3H_j_QYfC0"
             }
         }
     },
@@ -189,7 +188,7 @@ const universityData = [
             },
             "virtual_tour": {
                 "title": "🗺️ 3D-тур",
-                "link": "https://www.youtube.com/embed/z4f_g_Jk9U0" 
+                "link": "https://www.youtube.com/embed/z4f_g_Jk9U0"
             }
         }
     },
@@ -227,7 +226,7 @@ const universityData = [
             },
             "virtual_tour": {
                 "title": "🗺️ 3D-тур",
-                "link": "https://www.youtube.com/embed/n4qN-d9N8U0" 
+                "link": "https://www.youtube.com/embed/n4qN-d9N8U0"
             }
         }
     },
@@ -235,7 +234,7 @@ const universityData = [
         "id": "kaznitu",
         "name": "Казахский национальный исследовательский технический университет им. К.И. Сатпаева (Satbayev University)",
         "city": "Алматы",
-        "image_url": "https://via.placeholder.com/300x200?text=KAZNITU",
+        "image_url": "https://via.placeholder.com/300x200?text=KAZNITU", 
         "sections": {
             "mission_history": {
                 "title": "📜 Миссия, История и Лидерство",
@@ -273,7 +272,7 @@ const universityData = [
         "id": "kaznmu",
         "name": "Казахский национальный медицинский университет им. С.Д. Асфендиярова (КазНМУ)",
         "city": "Алматы",
-        "image_url": "https://via.placeholder.com/300x200?text=KAZNMU",
+        "image_url": "https://via.placeholder.com/300x200?text=KAZNMU", 
         "sections": {
             "mission_history": {
                 "title": "📜 Миссия, История и Лидерство",
@@ -311,7 +310,7 @@ const universityData = [
         "id": "enu",
         "name": "Евразийский национальный университет им. Л.Н. Гумилева (ЕНУ)",
         "city": "Нур-Султан (Астана)",
-        "image_url": "https://via.placeholder.com/300x200?text=ENU",
+        "image_url": "https://via.placeholder.com/300x200?text=ENU", 
         "sections": {
             "mission_history": {
                 "title": "📜 Миссия, История и Лидерство",
@@ -349,7 +348,7 @@ const universityData = [
         "id": "kaznpu",
         "name": "Казахский национальный педагогический университет им. Абая (КазНПУ)",
         "city": "Алматы",
-        "image_url": "https://via.placeholder.com/300x200?text=KAZNPU",
+        "image_url": "https://via.placeholder.com/300x200?text=KAZNPU", 
         "sections": {
             "mission_history": {
                 "title": "📜 Миссия, История и Лидерство",
@@ -363,115 +362,336 @@ const universityData = [
                 "list": [
                     { "program_name": "Учитель истории", "subjects_required": ["История мира", "География"] },
                     { "program_name": "Педагогика и психология", "subjects_required": ["Биология", "География"] },
-                    { "program_name": "Учитель физики", "subjects_required": ["Математика", "Физика"] }
+                    { "program_name": "Учитель информатики", "subjects_required": ["Математика", "Информатика"] }
                 ]
             },
             "admission": {
                 "title": "📝 Прием и Поступление",
-                "requirements": "ЕНТ, творческие экзамены (для творческих специальностей).",
+                "requirements": "ЕНТ, творческие экзамены для некоторых специальностей. Минимальный балл ЕНТ для педагогических специальностей.",
                 "deadlines": "Прием заявлений: Июль – Август.",
-                "scholarships": "Гранты МОН РК, гранты по квотам для педагогических специальностей."
+                "scholarships": "Гранты МОН РК, целевые гранты для сельской молодежи."
             },
             "international": {
                 "title": "🌍 Международное сотрудничество",
-                "exchange_programs": "Программы обмена с педагогическими вузами Европы и Азии.",
-                "partner_universities": ["МПГУ", "University of Education, Freiburg"]
+                "exchange_programs": "Программы обмена с педагогическими вузами России, Китая, Турции.",
+                "partner_universities": ["Московский педагогический государственный университет (МПГУ)"]
+            },
+            "virtual_tour": {
+                "title": "🗺️ 3D-тур",
+                "link": "https://www.youtube.com/embed/z4f_g_Jk9U0" 
+            }
+        }
+    },
+    {
+        "id": "smu",
+        "name": "Медицинский университет Семей (SMU)",
+        "city": "Семей",
+        "image_url": "https://via.placeholder.com/300x200?text=SMU",
+        "sections": {
+            "mission_history": {
+                "title": "📜 Миссия, История и Лидерство",
+                "mission": "Подготовка конкурентоспособных кадров здравоохранения, ориентированных на потребности региона.",
+                "history_excerpt": "Основан в 1953 году. Крупный медицинский вуз Восточного Казахстана.",
+                "achievements": ["Сильная клиническая база", "Обучение по программам ВОЗ"]
+            },
+            "programs": {
+                "title": "📚 Академические программы",
+                "description": "Общая медицина, Стоматология, Фармация, Сестринское дело.",
+                "list": [
+                    { "program_name": "Общая медицина", "subjects_required": ["Биология", "Химия"] },
+                    { "program_name": "Фармация", "subjects_required": ["Биология", "Химия"] }
+                ]
+            },
+            "admission": {
+                "title": "📝 Прием и Поступление",
+                "requirements": "Высокие баллы ЕНТ (Биология и Химия).",
+                "deadlines": "Прием заявлений: Июль – Август.",
+                "scholarships": "Гранты МОН РК, региональные гранты."
+            },
+            "international": {
+                "title": "🌍 Международное сотрудничество",
+                "exchange_programs": "Обмен с медицинскими вузами Европы и России.",
+                "partner_universities": ["University of Grodno"]
+            },
+            "virtual_tour": {
+                "title": "🗺️ 3D-тур",
+                "link": "https://www.youtube.com/embed/n4qN-d9N8U0"
+            }
+        }
+    },
+    {
+        "id": "kazguiu",
+        "name": "Казахский национальный аграрный исследовательский университет (КазНАИУ)",
+        "city": "Алматы",
+        "image_url": "https://via.placeholder.com/300x200?text=KAZNAIU",
+        "sections": {
+            "mission_history": {
+                "title": "📜 Миссия, История и Лидерство",
+                "mission": "Обеспечение агропромышленного комплекса высококвалифицированными специалистами.",
+                "history_excerpt": "Основан в 1929 году. Ведущий аграрный университет страны.",
+                "achievements": ["Инновационные центры в области сельского хозяйства", "Тесные связи с агробизнесом"]
+            },
+            "programs": {
+                "title": "📚 Академические программы",
+                "description": "Агрономия, Ветеринария, Земельные ресурсы, Инженерия в АПК.",
+                "list": [
+                    { "program_name": "Ветеринарная медицина", "subjects_required": ["Биология", "Химия"] },
+                    { "program_name": "Агрономия", "subjects_required": ["Биология", "География"] },
+                    { "program_name": "Землеустройство и Кадастр", "subjects_required": ["Математика", "География"] }
+                ]
+            },
+            "admission": {
+                "title": "📝 Прием и Поступление",
+                "requirements": "ЕНТ, минимальный балл для аграрных специальностей.",
+                "deadlines": "Прием заявлений: Июль – Август.",
+                "scholarships": "Гранты МОН РК, гранты от агрохолдингов."
+            },
+            "international": {
+                "title": "🌍 Международное сотрудничество",
+                "exchange_programs": "Сотрудничество с аграрными вузами США и Европы.",
+                "partner_universities": ["Wageningen University"]
+            },
+            "virtual_tour": {
+                "title": "🗺️ 3D-тур",
+                "link": "https://www.youtube.com/embed/n4qN-d9N8U0"
+            }
+        }
+    },
+    {
+        "id": "kazguu",
+        "name": "Университет КАЗГЮУ им. М.С. Нарикбаева (KAZGUU)",
+        "city": "Нур-Султан (Астана)",
+        "image_url": "https://via.placeholder.com/300x200?text=KAZGUU",
+        "sections": {
+            "mission_history": {
+                "title": "📜 Миссия, История и Лидерство",
+                "mission": "Подготовка юристов, экономистов и специалистов в области международного права, способных работать на мировом уровне.",
+                "history_excerpt": "Основан в 1994 году. Лидер в области юридического и экономического образования.",
+                "achievements": ["Автономия управления", "Практико-ориентированное обучение", "Международная аккредитация"]
+            },
+            "programs": {
+                "title": "📚 Академические программы",
+                "description": "Юриспруденция, Экономика, Международное право, Финансы.",
+                "list": [
+                    { "program_name": "Юриспруденция", "subjects_required": ["История мира", "География"] },
+                    { "program_name": "Международное право", "subjects_required": ["История мира", "Иностранный язык"] },
+                    { "program_name": "Экономика", "subjects_required": ["Математика", "География"] }
+                ]
+            },
+            "admission": {
+                "title": "📝 Прием и Поступление",
+                "requirements": "ЕНТ, внутренние экзамены по английскому языку и логике.",
+                "deadlines": "Прием заявлений: Июль – Август.",
+                "scholarships": "Гранты МОН РК, внутренние гранты KAZGUU."
+            },
+            "international": {
+                "title": "🌍 Международное сотрудничество",
+                "exchange_programs": "Обмен с вузами Европы и США, программы двойного диплома.",
+                "partner_universities": ["University of Westminster"]
+            },
+            "virtual_tour": {
+                "title": "🗺️ 3D-тур",
+                "link": "https://www.youtube.com/embed/d3H_j_QYfC0"
+            }
+        }
+    },
+    {
+        "id": "karnitu",
+        "name": "Карагандинский технический университет (КарГТУ)",
+        "city": "Караганда",
+        "image_url": "https://via.placeholder.com/300x200?text=KarNITU",
+        "sections": {
+            "mission_history": {
+                "title": "📜 Миссия, История и Лидерство",
+                "mission": "Подготовка инженерных кадров для горно-металлургического комплекса и промышленности Центрального Казахстана.",
+                "history_excerpt": "Основан в 1953 году. Крупный технический вуз региона.",
+                "achievements": ["Связи с промышленными предприятиями Карагандинской области", "Сильные инженерные программы"]
+            },
+            "programs": {
+                "title": "📚 Академические программы",
+                "description": "Горное дело, Металлургия, Машиностроение, IT-технологии.",
+                "list": [
+                    { "program_name": "Горное дело", "subjects_required": ["Математика", "Физика"] },
+                    { "program_name": "Металлургия", "subjects_required": ["Математика", "Физика"] },
+                    { "program_name": "IT-системы", "subjects_required": ["Математика", "Информатика"] }
+                ]
+            },
+            "admission": {
+                "title": "📝 Прием и Поступление",
+                "requirements": "ЕНТ, профильные предметы – Математика и Физика.",
+                "deadlines": "Прием заявлений: Июль – Август.",
+                "scholarships": "Гранты МОН РК, целевые гранты от промышленных компаний."
+            },
+            "international": {
+                "title": "🌍 Международное сотрудничество",
+                "exchange_programs": "Программы обмена с техническими вузами России и Европы.",
+                "partner_universities": ["МГТУ им. Баумана"]
             },
             "virtual_tour": {
                 "title": "🗺️ 3D-тур",
                 "link": "https://www.youtube.com/embed/pLz_ZqGz9U0"
             }
         }
-    }
-];
-
-// Добавление 6 заглушек (UNI8 - UNI13) для полноты массива:
-for (let i = 8; i <= 13; i++) {
-    universityData.push({
-        "id": "uni" + i,
-        "name": `Университет №${i} (Региональный Тех.)`,
-        "city": (i % 3 === 0 ? "Караганда" : (i % 2 === 0 ? "Алматы" : "Нур-Султан (Астана)")),
-        "image_url": `https://via.placeholder.com/300x200?text=UNI+${i}`,
+    },
+    {
+        "id": "almau",
+        "name": "Алматы Менеджмент Университет (AlmaU)",
+        "city": "Алматы",
+        "image_url": "https://via.placeholder.com/300x200?text=AlmaU",
         "sections": {
             "mission_history": {
                 "title": "📜 Миссия, История и Лидерство",
-                "mission": `Миссия университета №${i} - развитие регионального образования и инноваций.`,
-                "history_excerpt": "Основан недавно, но активно развивается в сфере IT.",
-                "achievements": ["Развитие региона", "Акцент на IT"]
+                "mission": "Развитие нового поколения предпринимателей и лидеров, меняющих мир.",
+                "history_excerpt": "Основан в 1988 году. Ведущий бизнес-вуз страны. Фокус на предпринимательстве и менеджменте.",
+                "achievements": ["Международная аккредитация AMBA", "Бизнес-инкубатор и стартап-хаб"]
             },
             "programs": {
                 "title": "📚 Академические программы",
-                "description": "Многопрофильные программы с фокусом на технологии.",
+                "description": "Бизнес, Менеджмент, Финансы, Маркетинг, IT в бизнесе.",
                 "list": [
                     { "program_name": "Менеджмент", "subjects_required": ["Математика", "География"] },
-                    { "program_name": "IT-системы", "subjects_required": ["Математика", "Информатика"] },
-                    { "program_name": "Экология", "subjects_required": ["Биология", "География"] }
+                    { "program_name": "Маркетинг", "subjects_required": ["География", "Иностранный язык"] },
+                    { "program_name": "IT в бизнесе", "subjects_required": ["Математика", "Информатика"] }
                 ]
             },
             "admission": {
                 "title": "📝 Прием и Поступление",
-                "requirements": "ЕНТ, средние баллы по профильным предметам.",
-                "deadlines": "Июль – Август.",
-                "scholarships": "Гранты МОН РК, скидки для местных абитуриентов."
+                "requirements": "ЕНТ, внутренний экзамен по английскому языку, мотивационное письмо.",
+                "deadlines": "Прием заявлений: Июль – Август.",
+                "scholarships": "Внутренние гранты AlmaU, скидки для победителей олимпиад."
             },
             "international": {
                 "title": "🌍 Международное сотрудничество",
-                "exchange_programs": "Обмен с соседними странами и программы повышения квалификации.",
-                "partner_universities": ["Региональные ВУЗы РФ и Узбекистана"]
+                "exchange_programs": "Программы обмена с бизнес-школами Европы и Азии.",
+                "partner_universities": ["European Business School", "Solvay Business School"]
             },
             "virtual_tour": {
                 "title": "🗺️ 3D-тур",
-                "link": "https://www.youtube.com/embed/n4qN-d9N8U0" 
+                "link": "https://www.youtube.com/embed/z4f_g_Jk9U0"
             }
         }
-    });
-}
+    },
+    {
+        "id": "kazatu",
+        "name": "Казахский агротехнический исследовательский университет им. С. Сейфуллина (КазАТУ)",
+        "city": "Нур-Султан (Астана)",
+        "image_url": "https://via.placeholder.com/300x200?text=KAZATU",
+        "sections": {
+            "mission_history": {
+                "title": "📜 Миссия, История и Лидерство",
+                "mission": "Инновационное развитие аграрного сектора Казахстана через образование и научные исследования.",
+                "history_excerpt": "Основан в 1957 году. Лидер в подготовке кадров для АПК Северного Казахстана.",
+                "achievements": ["Центры точного земледелия", "Тесные связи с Минсельхозом"]
+            },
+            "programs": {
+                "title": "📚 Академические программы",
+                "description": "Сельское хозяйство, Инженерия в АПК, Ветеринария, Технологии пищевой промышленности.",
+                "list": [
+                    { "program_name": "Сельское хозяйство", "subjects_required": ["Биология", "География"] },
+                    { "program_name": "Агроинженерия", "subjects_required": ["Математика", "Физика"] },
+                    { "program_name": "Пищевая безопасность", "subjects_required": ["Биология", "Химия"] }
+                ]
+            },
+            "admission": {
+                "title": "📝 Прием и Поступление",
+                "requirements": "ЕНТ, минимальный балл для аграрных специальностей.",
+                "deadlines": "Прием заявлений: Июль – Август.",
+                "scholarships": "Гранты МОН РК, гранты на развитие АПК."
+            },
+            "international": {
+                "title": "🌍 Международное сотрудничество",
+                "exchange_programs": "Обмен с аграрными вузами США, Европы и России.",
+                "partner_universities": ["University of Debrecen"]
+            },
+            "virtual_tour": {
+                "title": "🗺️ 3D-тур",
+                "link": "https://www.youtube.com/embed/d3H_j_QYfC0"
+            }
+        }
+    },
+    {
+        "id": "suk",
+        "name": "Южно-Казахстанский университет им. М. Ауэзова (ЮКУ)",
+        "city": "Шымкент",
+        "image_url": "https://via.placeholder.com/300x200?text=SUK",
+        "sections": {
+            "mission_history": {
+                "title": "📜 Миссия, История и Лидерство",
+                "mission": "Подготовка многопрофильных специалистов для индустриально-инновационного развития Южного Казахстана.",
+                "history_excerpt": "Основан в 1943 году. Крупный многопрофильный вуз южного региона.",
+                "achievements": ["Широкий спектр технических и гуманитарных специальностей"]
+            },
+            "programs": {
+                "title": "📚 Академические программы",
+                "description": "Технические, Инженерные, Гуманитарные, Сельскохозяйственные специальности.",
+                "list": [
+                    { "program_name": "Химическая инженерия", "subjects_required": ["Математика", "Химия"] },
+                    { "program_name": "Педагогика", "subjects_required": ["История мира", "География"] },
+                    { "program_name": "Нефтегазовое дело", "subjects_required": ["Математика", "Физика"] }
+                ]
+            },
+            "admission": {
+                "title": "📝 Прием и Поступление",
+                "requirements": "ЕНТ, минимальные проходные баллы.",
+                "deadlines": "Прием заявлений: Июль – Август.",
+                "scholarships": "Гранты МОН РК, региональные гранты."
+            },
+            "international": {
+                "title": "🌍 Международное сотрудничество",
+                "exchange_programs": "Обмен с вузами стран СНГ и Азии.",
+                "partner_universities": ["МГТУ им. Баумана"]
+            },
+            "virtual_tour": {
+                "title": "🗺️ 3D-тур",
+                "link": "https://www.youtube.com/embed/z4f_g_Jk9U0"
+            }
+        }
+    }
+];
 
 
 // =================================================================
-// ЧАСТЬ 2: ФУНКЦИИ УПРАВЛЕНИЯ КАТАЛОГОМ И ФИЛЬТРАЦИЯ
+// ЧАСТЬ 2: ЛОГИКА ПЛАТФОРМЫ (РЕНДЕРИНГ, ФИЛЬТРАЦИЯ, СРАВНЕНИЕ)
 // =================================================================
+let comparisonList = [];
 
-const universityListElement = document.getElementById('university-list');
-const comparisonList = [];
-
-/**
- * Рендерит карточку университета
- * @param {object} uni - объект университета
- */
+// --- Функции рендеринга и управления карточками ---
 function renderUniversityCard(uni) {
+    const isCompared = comparisonList.includes(uni.id);
+    const compareButtonText = isCompared ? '✔ Сравнить (Добавлено)' : '+ Добавить к сравнению';
+
     const card = document.createElement('div');
     card.className = 'uni-card';
-    
-    // Получение основных профильных предметов (для отображения)
-    const primaryProgram = uni.sections.programs.list[0];
-    const subjects = primaryProgram ? primaryProgram.subjects_required.join(', ') : 'Не указаны';
-
-    // Проверяем, находится ли ВУЗ в списке сравнения для установки правильного текста кнопки
-    const isCompared = comparisonList.includes(uni.id);
-    const compareButtonText = isCompared ? 'В сравнении (X)' : 'Сравнить';
-    const compareButtonClass = isCompared ? 'compare-btn active' : 'compare-btn';
+    card.setAttribute('data-uni-id', uni.id);
 
     card.innerHTML = `
         <img src="${uni.image_url}" alt="${uni.name}">
         <div class="uni-card-content">
             <h3>${uni.name}</h3>
-            <p><strong>📍 Город:</strong> ${uni.city}</p>
-            <p><strong>🌟 Профиль:</strong> ${primaryProgram ? primaryProgram.program_name : 'Общий'}</p>
-            <p><strong>📚 ЕНТ (Проф.):</strong> ${subjects}</p>
-            <button onclick="openModal('${uni.id}')">Подробнее</button>
-            <button class="${compareButtonClass}" data-id="${uni.id}" onclick="toggleComparison('${uni.id}', this)">${compareButtonText}</button>
+            <p><strong>Город:</strong> ${uni.city}</p>
+            <button onclick="showDetails('${uni.id}')">Детали ВУЗа</button>
+            <button class="compare-btn" data-id="${uni.id}" onclick="toggleComparison('${uni.id}')" style="${isCompared ? 'background-color: var(--primary-light); border: 1px solid #0056b3;' : ''}">${compareButtonText}</button>
         </div>
     `;
-    universityListElement.appendChild(card);
+    return card;
 }
 
-/**
- * Фильтрует и рендерит список университетов
- */
-function filterUniversities() {
-    if (!universityListElement) return;
+function displayUniversities(universities) {
+    const listContainer = document.getElementById('university-list');
+    listContainer.innerHTML = '';
 
+    if (universities.length === 0) {
+        listContainer.innerHTML = '<p>К сожалению, по вашим критериям университеты не найдены. Попробуйте изменить фильтры.</p>';
+        return;
+    }
+
+    universities.forEach(uni => {
+        listContainer.appendChild(renderUniversityCard(uni));
+    });
+}
+
+// --- Логика фильтрации ---
+function filterUniversities() {
     const city = document.getElementById('city-filter').value;
     const subj1 = document.getElementById('subject1').value;
     const subj2 = document.getElementById('subject2').value;
@@ -479,485 +699,280 @@ function filterUniversities() {
     const filtered = universityData.filter(uni => {
         const cityMatch = !city || uni.city === city;
         
-        let subjectMatch = true;
-        if (subj1 && subj2) {
-            // Ищем программы, требующие оба предмета
-            subjectMatch = uni.sections.programs.list.some(p => 
-                p.subjects_required.includes(subj1) && p.subjects_required.includes(subj2)
-            );
-        } else if (subj1 || subj2) {
-            const singleSubject = subj1 || subj2;
-            // Ищем программы, требующие хотя бы один из указанных предметов
-            subjectMatch = uni.sections.programs.list.some(p => 
-                p.subjects_required.includes(singleSubject)
-            );
+        let subjectsMatch = true;
+        if (subj1 || subj2) {
+            // Проверяем, есть ли хотя бы одна программа, где оба выбранных предмета присутствуют
+            const requiredPrograms = uni.sections.programs.list;
+            
+            subjectsMatch = requiredPrograms.some(prog => {
+                const required = prog.subjects_required;
+                let matchCount = 0;
+                
+                if (subj1 && required.includes(subj1)) matchCount++;
+                if (subj2 && required.includes(subj2)) matchCount++;
+                
+                // Если выбран один предмет, достаточно одного совпадения. 
+                // Если выбраны два, нужно два совпадения.
+                if (subj1 && subj2) return matchCount === 2;
+                if (subj1 || subj2) return matchCount >= 1;
+                return true; // Если ни один предмет не выбран, пропускаем фильтр
+            });
         }
-
-        return cityMatch && subjectMatch;
+        
+        return cityMatch && subjectsMatch;
     });
 
-    universityListElement.innerHTML = '';
-    if (filtered.length === 0) {
-        universityListElement.innerHTML = '<p style="color: #dc3545;">По заданным критериям ВУЗы не найдены. Попробуйте изменить фильтры.</p>';
-    } else {
-        filtered.forEach(renderUniversityCard);
-    }
-    
-    // Обновляем состояние кнопок сравнения, чтобы убедиться, что они актуальны
-    updateComparisonButtons();
+    displayUniversities(filtered);
 }
 
-// Инициализация при загрузке DOM
-document.addEventListener('DOMContentLoaded', () => {
-    // Привязка обработчиков событий к фильтрам
-    if (document.getElementById('city-filter')) document.getElementById('city-filter').addEventListener('change', filterUniversities);
-    if (document.getElementById('subject1')) document.getElementById('subject1').addEventListener('change', filterUniversities);
-    if (document.getElementById('subject2')) document.getElementById('subject2').addEventListener('change', filterUniversities);
-    
-    filterUniversities(); // Первичный рендеринг
-});
-
-
-// =================================================================
-// ЧАСТЬ 3: МОДАЛЬНЫЕ ОКНА И СРАВНЕНИЕ
-// =================================================================
-
-const modal = document.getElementById('details-modal');
-const modalBody = document.getElementById('modal-body');
-
-/**
- * Открывает модальное окно с деталями университета
- * @param {string} uniId - ID университета
- */
-function openModal(uniId) {
+// --- Логика модального окна (Детализация) ---
+function showDetails(uniId) {
     const uni = universityData.find(u => u.id === uniId);
-    if (!uni || !modal || !modalBody) return;
+    if (!uni) return;
 
-    let htmlContent = `<h2>${uni.name}</h2>`;
-    
-    // Генерация секций
+    const modalBody = document.getElementById('modal-body');
+    let contentHTML = `
+        <h2>${uni.name} (${uni.city})</h2>
+        <div class="uni-sections">
+    `;
+
+    // Добавление данных из каждой секции
     for (const key in uni.sections) {
         const section = uni.sections[key];
-        htmlContent += `<div class="uni-sections"><h4>${section.title}</h4>`;
+        contentHTML += `<h4>${section.title}</h4>`;
         
-        if (key === 'virtual_tour') {
-            htmlContent += `<iframe width="100%" height="450" src="${section.link}" frameborder="0" allowfullscreen></iframe>`;
-        } else if (key === 'programs') {
-            htmlContent += `<p>${section.description}</p><ul>`;
-            section.list.forEach(p => {
-                htmlContent += `<li><strong>${p.program_name}</strong> (Профильные ЕНТ: ${p.subjects_required.join(', ')})</li>`;
-            });
-            htmlContent += `</ul>`;
-        } else if (key === 'mission_history') {
-            htmlContent += `<p><strong>Миссия:</strong> ${section.mission}</p>`;
-            htmlContent += `<p><strong>История:</strong> ${section.history_excerpt}</p>`;
-            htmlContent += `<ul>`;
-            section.achievements.forEach(a => htmlContent += `<li>${a}</li>`);
-            htmlContent += `</ul>`;
-        } else {
-            // Общая обработка остальных секций (admission, international)
-            for (const prop in section) {
-                if (prop !== 'title') {
-                    const label = prop.replace(/_/g, ' ').charAt(0).toUpperCase() + prop.slice(1).replace(/_/g, ' ');
-                    if (Array.isArray(section[prop])) {
-                        htmlContent += `<p><strong>${label}:</strong> ${section[prop].join('; ')}</p>`;
-                    } else {
-                        htmlContent += `<p><strong>${label}:</strong> ${section[prop]}</p>`;
-                    }
-                }
-            }
+        if (section.mission) contentHTML += `<p><strong>Миссия:</strong> ${section.mission}</p>`;
+        if (section.history_excerpt) contentHTML += `<p><strong>История:</strong> ${section.history_excerpt}</p>`;
+        
+        if (section.achievements && section.achievements.length) {
+            contentHTML += '<strong>Достижения:</strong><ul>';
+            section.achievements.forEach(item => contentHTML += `<li>${item}</li>`);
+            contentHTML += '</ul>';
         }
 
-        htmlContent += `</div>`;
+        if (section.list && section.list.length) {
+            contentHTML += '<strong>Программы:</strong><ul>';
+            section.list.forEach(item => contentHTML += `<li>${item.program_name} (ЕНТ: ${item.subjects_required.join(' и ')})</li>`);
+            contentHTML += '</ul>';
+        }
+
+        if (section.requirements) contentHTML += `<p><strong>Требования:</strong> ${section.requirements}</p>`;
+        
+        if (section.link) {
+            contentHTML += `<p><a href="${section.link}" target="_blank">Посмотреть 3D-тур на YouTube</a></p>`;
+            contentHTML += `<iframe width="100%" height="400" src="${section.link}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+        }
     }
 
-    modalBody.innerHTML = htmlContent;
-    modal.style.display = 'block';
+    contentHTML += '</div>';
+    modalBody.innerHTML = contentHTML;
+    document.getElementById('details-modal').style.display = 'block';
 }
 
 function closeModal() {
-    if (modal) modal.style.display = 'none';
+    document.getElementById('details-modal').style.display = 'none';
 }
 
-// Закрытие по клику вне модального окна
+// Закрытие модального окна по клику вне его
 window.onclick = function(event) {
+    const modal = document.getElementById('details-modal');
     if (event.target === modal) {
-        closeModal();
+        modal.style.display = "none";
     }
-};
+}
 
-/**
- * Добавляет/удаляет университет из списка сравнения и обновляет таблицу.
- * @param {string} uniId - ID университета
- * @param {HTMLElement} button - Кнопка, вызвавшая функцию
- */
-function toggleComparison(uniId, button) {
-    const uniIndex = comparisonList.indexOf(uniId);
-    if (uniIndex > -1) {
-        // Удалить
-        comparisonList.splice(uniIndex, 1);
-        button.textContent = 'Сравнить';
-        button.classList.remove('active');
-    } else {
-        // Добавить (максимум 4)
+// --- Логика сравнения ---
+function toggleComparison(uniId) {
+    const index = comparisonList.indexOf(uniId);
+    if (index === -1) {
         if (comparisonList.length >= 4) {
-            alert('Максимум для сравнения - 4 университета.');
+            alert('Вы можете сравнить не более 4 университетов.');
             return;
         }
         comparisonList.push(uniId);
-        button.textContent = 'В сравнении (X)';
-        button.classList.add('active');
+    } else {
+        comparisonList.splice(index, 1);
     }
-    
-    updateComparisonTable();
-    updateComparisonButtons();
+
+    // Перерисовываем карточки и таблицу
+    filterUniversities(); // Обновляет кнопки на карточках
+    renderComparisonTable();
 }
 
-/**
- * Очищает список сравнения
- */
 function clearComparison() {
-    comparisonList.length = 0; // Очистка массива
-    updateComparisonTable();
-    updateComparisonButtons();
-    alert('Список сравнения очищен.');
+    comparisonList = [];
+    filterUniversities();
+    renderComparisonTable();
 }
 
-/**
- * Обновляет текст и класс всех кнопок "Сравнить"
- */
-function updateComparisonButtons() {
-    document.querySelectorAll('.compare-btn').forEach(btn => {
-        const id = btn.dataset.id;
-        if (comparisonList.includes(id)) {
-            btn.textContent = 'В сравнении (X)';
-            btn.classList.add('active');
-        } else {
-            btn.textContent = 'Сравнить';
-            btn.classList.remove('active');
-        }
-    });
-}
-
-/**
- * Рендерит таблицу сравнения
- */
-function updateComparisonTable() {
-    const comparisonSection = document.getElementById('comparison-section');
+function renderComparisonTable() {
+    const compSection = document.getElementById('comparison-section');
     const tableContainer = document.getElementById('comparison-table');
-    if (!tableContainer || !comparisonSection) return;
-
-    if (comparisonList.length === 0) {
-        comparisonSection.style.display = 'none';
+    
+    if (comparisonList.length < 2) {
+        compSection.style.display = 'none';
         return;
     }
 
-    comparisonSection.style.display = 'block';
+    compSection.style.display = 'block';
     
     const unisToCompare = universityData.filter(uni => comparisonList.includes(uni.id));
-    
-    // Структура данных для таблицы
-    const comparisonData = [
-        { key: 'name', title: 'Название ВУЗа' },
-        { key: 'city', title: 'Город' },
-        { key: 'achievements', title: 'Главные достижения', extractor: uni => uni.sections.mission_history.achievements.join(', ') },
-        { key: 'programs', title: 'Основные программы', extractor: uni => uni.sections.programs.list.map(p => p.program_name + ` (${p.subjects_required.join('/')})`).join('<br>') },
-        { key: 'requirements', title: 'Требования к ЕНТ', extractor: uni => uni.sections.admission.requirements },
-        { key: 'scholarships', title: 'Гранты/Стипендии', extractor: uni => uni.sections.admission.scholarships }
-    ];
 
-    let tableHTML = '<table class="comparison-table"><thead><tr><th>Критерий</th>';
-    
-    // Заголовки столбцов (Названия ВУЗов)
+    let tableHTML = `<table class="comparison-table"><thead><tr><th>Критерий</th>`;
     unisToCompare.forEach(uni => {
         tableHTML += `<th>${uni.name}</th>`;
     });
-    tableHTML += '</tr></thead><tbody>';
+    tableHTML += `</tr></thead><tbody>`;
 
-    // Строки данных
-    comparisonData.forEach(item => {
-        tableHTML += `<tr><th>${item.title}</th>`;
+    const criteria = [
+        { name: 'Город', getValue: uni => uni.city },
+        { name: 'Миссия/Фокус', getValue: uni => uni.sections.mission_history.mission },
+        { name: 'Год основания', getValue: uni => uni.sections.mission_history.history_excerpt.split('. ')[0].replace('Основан в ', '') },
+        { name: 'ТОП достижения', getValue: uni => uni.sections.mission_history.achievements.join(', ') },
+        { name: 'Примеры программ (ЕНТ)', getValue: uni => uni.sections.programs.list.map(p => `${p.program_name} (${p.subjects_required.join(' и ')})`).join('<br>') },
+        { name: 'Требования к ЕНТ', getValue: uni => uni.sections.admission.requirements },
+        { name: 'Обменные программы', getValue: uni => uni.sections.international.exchange_programs }
+    ];
+
+    criteria.forEach(crit => {
+        tableHTML += `<tr><th>${crit.name}</th>`;
         unisToCompare.forEach(uni => {
-            const value = item.extractor ? item.extractor(uni) : uni[item.key] || 'Нет данных';
-            tableHTML += `<td>${value}</td>`;
+            tableHTML += `<td>${crit.getValue(uni)}</td>`;
         });
-        tableHTML += '</tr>';
+        tableHTML += `</tr>`;
     });
 
-    tableHTML += '</tbody></table>';
+    tableHTML += `</tbody></table>`;
     tableContainer.innerHTML = tableHTML;
 }
 
-
-// =================================================================
-// ЧАСТЬ 4: ЛОГИКА ЧАТ-БОТА NURUM AI
-// =================================================================
-
-const chatButton = document.getElementById('nurym-chat-btn');
-const chatModal = document.getElementById('nurym-chat-modal');
-const closeChatButton = chatModal ? chatModal.querySelector('.close-chat') : null;
-const chatBody = chatModal ? chatModal.querySelector('.chat-body') : null;
-const chatInput = chatModal ? chatModal.querySelector('.chat-footer input') : null;
-const sendButton = chatModal ? chatModal.querySelector('.chat-footer button') : null;
-
-let chatState = 'default';
-let chatQuizAnswers = {}; // Используем отдельный объект для чат-квиза
-
-// -----------------------------------------------------------------
-// Функции интерфейса чата (Чат-бот в правом нижнем углу)
-// -----------------------------------------------------------------
-
-function toggleChatModal() {
-    if (!chatModal) return;
-
-    if (chatModal.style.display === 'flex') {
-        chatModal.style.display = 'none';
-    } else {
-        chatModal.style.display = 'flex';
-        if (chatBody && chatBody.children.length === 0) {
-            appendChatMessage('nurym', "Здравствуйте! Я Nurym AI, ваш консультант. Я могу ответить на вопросы о ВУЗах или провести небольшой опрос, чтобы дать вам рекомендацию. Что вас интересует?");
-        }
-        if (chatInput) chatInput.focus();
-    }
-}
-
-function appendChatMessage(sender, text) {
-    if (!chatBody) return;
-
-    const messageDiv = document.createElement('div');
-    messageDiv.className = `message ${sender}`;
-    
-    const textNode = document.createElement('p');
-    // Замена **текст** на <b>текст</b>
-    textNode.innerHTML = text.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>'); 
-    messageDiv.appendChild(textNode);
-    
-    chatBody.appendChild(messageDiv);
-    chatBody.scrollTop = chatBody.scrollHeight;
-}
-
-
-// -----------------------------------------------------------------
-// Логика обработки запросов ЧАТ-БОТА
-// -----------------------------------------------------------------
-
-/**
- * Генерирует ответ Nurym AI, включая логику простого квиза.
- */
-function handleChatInput(query) {
-    const lowerQuery = query.toLowerCase().trim();
-    
-    // --- Логика Квиза (Упрощенный вариант для чата) ---
-    if (lowerQuery.includes('опрос') || lowerQuery.includes('рекомендация')) {
-        chatState = 'quiz_start';
-        chatQuizAnswers = {};
-        return "Отлично! Начнем с простого: какое направление вам ближе? **1) Техника/IT**, **2) Медицина/Естественные науки**, **3) Гуманитарные/Социальные науки**";
-    }
-
-    if (chatState === 'quiz_start') {
-        let major = '';
-        if (lowerQuery.includes('1') || lowerQuery.includes('техника') || lowerQuery.includes('it')) {
-            major = 'Техника/IT';
-        } else if (lowerQuery.includes('2') || lowerQuery.includes('медицина') || lowerQuery.includes('естественные')) {
-            major = 'Медицина/Естественные науки';
-        } else if (lowerQuery.includes('3') || lowerQuery.includes('гуманитарные') || lowerQuery.includes('социальные')) {
-            major = 'Гуманитарные/Социальные науки';
-        } else {
-            return "Не совсем понял. Пожалуйста, выберите цифру: **1, 2 или 3**.";
-        }
-        chatQuizAnswers.major = major;
-        chatState = 'quiz_subject';
-        return `Вы выбрали **${major}**. Теперь выберите ваш второй профильный предмет ЕНТ: **Физика**, **Информатика**, **Химия** или **История мира**? (Математика обычно первый предмет для Техника/Экономики, Биология для Медицины/Естественных)`;
-    }
-
-    if (chatState === 'quiz_subject') {
-        let subject = '';
-        if (lowerQuery.includes('физика')) subject = 'Физика';
-        else if (lowerQuery.includes('информатика')) subject = 'Информатика';
-        else if (lowerQuery.includes('химия')) subject = 'Химия';
-        else if (lowerQuery.includes('история')) subject = 'История мира';
-        else if (lowerQuery.includes('география')) subject = 'География';
-        else {
-            return "Пожалуйста, назовите один из предметов: **Физика**, **Информатика**, **Химия**, **История мира** или **География**.";
-        }
-        chatQuizAnswers.subject = subject;
-        chatState = 'default'; // Квиз завершен
-        
-        // Поиск рекомендаций на основе квиза
-        const recommendedUni = universityData.find(uni => 
-            uni.sections.programs.list.some(p => p.subjects_required.includes(subject))
-        );
-
-        let finalRecommendation = `🚀 Отлично! Ваш профиль: **${chatQuizAnswers.major}** с предметом **${subject}**.`;
-        
-        if (recommendedUni) {
-            finalRecommendation += `\n\nЯ рекомендую вам обратить внимание на **${recommendedUni.name}** в ${recommendedUni.city}, который предлагает программы, требующие **${subject}**. Используйте фильтр каталога, чтобы увидеть больше вариантов!`;
-        } else {
-             finalRecommendation += `\n\nЯ не нашел прямого совпадения по этому предмету, но рекомендую проверить **КазНУ** или **ЕНУ**, так как они предлагают самый широкий спектр программ.`;
-        }
-        
-        return finalRecommendation;
-    }
-
-    // --- Логика по умолчанию (вопросы о ВУЗах, ЕНТ) ---
-
-    // 1. Поиск по названию университета
-    const uni = universityData.find(u => lowerQuery.includes(u.name.toLowerCase().split('(')[0].trim()) || lowerQuery.includes(u.id.toLowerCase()));
-    
-    if (uni) {
-        const primaryProgram = uni.sections.programs.list[0];
-        return `Да, **${uni.name}** (${uni.city}) - это отличный выбор. Один из их ключевых профилей - **${primaryProgram.program_name}**, для которого требуются предметы ЕНТ: **${primaryProgram.subjects_required.join(' и ')}**.\n\nВы можете нажать кнопку "Подробнее" в каталоге, чтобы получить полную информацию!`;
-    }
-    
-    // 2. Общие вопросы
-    if (lowerQuery.includes("ент") || lowerQuery.includes("грант")) {
-        return "ЕНТ — это основной экзамен для поступления. Главное — набрать высокий балл по **двум профильным предметам** (например, Математика и Физика) и по трем обязательным. Гранты распределяются на конкурсной основе по баллам ЕНТ.";
-    }
-
-    if (lowerQuery.includes("привет") || lowerQuery.includes("здравствуй")) {
-        return "Приветствую! Я Nurym AI, ваш консультант. Я могу помочь выбрать профессию, найти университет или рассказать о требованиях ЕНТ. С чего начнем?";
-    }
-
-    // 3. Заглушка
-    return "Я Nurym AI, и я специализируюсь на информации о ВУЗах, ЕНТ и выборе профиля. Спросите меня о конкретном университете, или попросите '**рекомендация**', чтобы начать опрос!";
-}
-
-function handleChatSend() {
-    if (!chatInput) return;
-    const userInput = chatInput.value.trim();
-    if (userInput === '') return;
-
-    appendChatMessage('user', userInput);
-    chatInput.value = '';
-
-    const aiResponse = handleChatInput(userInput);
-    
-    // Эмуляция задержки
-    setTimeout(() => {
-        appendChatMessage('nurym', aiResponse);
-    }, 500);
-}
-
-
-// -----------------------------------------------------------------
-// Привязка событий ЧАТ-БОТА
-// -----------------------------------------------------------------
-
-if (chatButton) chatButton.addEventListener('click', toggleChatModal);
-
-if (closeChatButton) closeChatButton.addEventListener('click', toggleChatModal);
-
-if (sendButton) sendButton.addEventListener('click', handleChatSend);
-
-if (chatInput) {
-    chatInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            handleChatSend();
-        }
-    });
-}
-
-
-// =================================================================
-// ЧАСТЬ 5: ЛОГИКА ОПРОСА (Отдельная секция)
-// =================================================================
-
-const quizContainer = document.getElementById('quiz-container');
-const quizResults = document.getElementById('quiz-results');
-let currentQuizStep = 0;
-
+// --- Логика Опроса (Quiz) ---
 const quizQuestions = [
-    { 
-        question: "Направление, которое вам интереснее всего?", 
-        options: ["IT и Инженерия", "Медицина и Биология", "Экономика и Финансы", "Гуманитарные науки"],
-        name: 'major'
-    },
-    { 
-        question: "Какой профильный предмет ЕНТ вы бы сдали лучше всего (для вашего направления)?", 
-        options: ["Математика", "Физика", "Биология", "Химия", "История мира", "Информатика", "География"],
-        name: 'subject'
-    },
-    {
-        question: "Какой город вам ближе для учебы?",
-        options: ["Алматы", "Нур-Султан (Астана)", "Караганда", "Другой город/Не важно"],
-        name: 'city'
-    }
+    { text: "Что для тебя важнее всего в будущей работе?", options: ["Высокая зарплата", "Помощь людям", "Творческая свобода", "Стабильность и структура"] },
+    { text: "Какой предмет тебе дается легче всего и нравится больше?", options: ["Математика и Физика", "Биология и Химия", "История и Языки", "Информатика и Логика"] },
+    { text: "Какая среда обучения тебя больше привлекает?", options: ["Строгая, исследовательская, международная", "Практическая, ориентированная на индустрию", "Гуманитарная, с упором на культуру и общение", "Медицинская, с упором на клинику и практику"] }
 ];
+let currentQuestionIndex = 0;
+let quizAnswers = [];
 
 function startQuiz() {
-    currentQuizStep = 0;
-    // Используем quizAnswers для этого опроса
-    window.quizAnswers = {};
-    renderQuizStep();
-    if (quizResults) quizResults.style.display = 'none';
+    currentQuestionIndex = 0;
+    quizAnswers = [];
+    document.getElementById('quiz-results').style.display = 'none';
+    showNextQuestion();
 }
 
-function renderQuizStep() {
-    if (!quizContainer) return;
-    
-    if (currentQuizStep >= quizQuestions.length) {
+function showNextQuestion() {
+    const quizContainer = document.getElementById('quiz-container');
+    if (currentQuestionIndex >= quizQuestions.length) {
         showQuizResults();
         return;
     }
 
-    const step = quizQuestions[currentQuizStep];
-    let html = `<p><strong>Вопрос ${currentQuizStep + 1}/${quizQuestions.length}:</strong> ${step.question}</p>`;
+    const q = quizQuestions[currentQuestionIndex];
+    let qHtml = `<p><strong>Вопрос ${currentQuestionIndex + 1}:</strong> ${q.text}</p><div style="display: flex; flex-direction: column; gap: 10px;">`;
     
-    step.options.forEach(option => {
-        // Убрал стили из кнопки, чтобы использовать CSS-стили
-        html += `<button onclick="answerQuiz('${step.name}', '${option}')" style="margin-right: 10px; margin-bottom: 10px;">${option}</button>`;
+    q.options.forEach((option, index) => {
+        qHtml += `<button onclick="recordAnswer(${index})">${option}</button>`;
     });
 
-    quizContainer.innerHTML = html;
+    qHtml += '</div>';
+    quizContainer.innerHTML = qHtml;
 }
 
-function answerQuiz(name, value) {
-    window.quizAnswers[name] = value;
-    currentQuizStep++;
-    renderQuizStep();
+function recordAnswer(optionIndex) {
+    quizAnswers.push(optionIndex);
+    currentQuestionIndex++;
+    showNextQuestion();
 }
 
 function showQuizResults() {
-    if (!quizResults || !quizContainer) return;
+    const resultsContainer = document.getElementById('quiz-results');
+    const quizContainer = document.getElementById('quiz-container');
+    const totals = quizAnswers.reduce((acc, index) => {
+        acc[index] = (acc[index] || 0) + 1;
+        return acc;
+    }, {});
 
-    quizContainer.innerHTML = '<p>Спасибо за ответы! Идет генерация рекомендаций...</p>';
+    const maxIndex = Object.keys(totals).reduce((a, b) => totals[a] > totals[b] ? a : b);
 
-    // Пауза для имитации работы AI
-    setTimeout(() => {
-        
-        const finalMajor = window.quizAnswers.major || 'Не определено';
-        const finalSubject = window.quizAnswers.subject || 'Не определено';
-        const finalCity = window.quizAnswers.city === 'Другой город/Не важно' ? '' : window.quizAnswers.city;
-        
-        let recommendationText = `<h3>🎯 Ваша Рекомендация Nurym AI</h3>`;
-        recommendationText += `<p>На основании ваших ответов, ваше предпочтительное направление: <strong>${finalMajor}</strong>. </p>`;
-        recommendationText += `<p>Ключевой профильный предмет, который вам следует сдать: <strong>${finalSubject}</strong>.</p>`;
+    let resultText = "<h3>⭐ Твои склонности (помощник Nurym)</h3>";
+    
+    switch (parseInt(maxIndex)) {
+        case 0:
+        case 3:
+            resultText += "<p>Твои ответы указывают на склонность к **техническим, финансовым и управленческим** областям. Тебе важна структура и результат.</p>";
+            resultText += "<p><strong>Рекомендуемые предметы ЕНТ:</strong> Математика и Физика / Информатика.</p>";
+            resultText += "<p><strong>Рекомендуемые ВУЗы:</strong> КБТУ, Satbayev University, IITU, AlmaU.</p>";
+            break;
+        case 1:
+            resultText += "<p>Твои ответы говорят о сильном интересе к **медицине, биологии и естественным наукам**. Желание помогать людям очень важно!</p>";
+            resultText += "<p><strong>Рекомендуемые предметы ЕНТ:</strong> Биология и Химия.</p>";
+            resultText += "<p><strong>Рекомендуемые ВУЗы:</strong> КазНМУ, КМУ (Караганда), SMU.</p>";
+            break;
+        case 2:
+            resultText += "<p>Ты склонен к **гуманитарным наукам, языкам, праву и общению**. Тебе важна культурная среда и взаимодействие.</p>";
+            resultText += "<p><strong>Рекомендуемые предметы ЕНТ:</strong> История мира и Иностранный язык / География.</p>";
+            resultText += "<p><strong>Рекомендуемые ВУЗы:</strong> КазНУ, ЕНУ, KAZGUU, КазНПУ.</p>";
+            break;
+        default:
+            resultText += "<p>У тебя многогранные интересы! Попробуй использовать фильтры по предметам, которые тебе нравятся, чтобы увидеть все возможности.</p>";
+    }
 
-        // Поиск ВУЗа по результатам квиза
-        const recommendedUni = universityData.find(uni => 
-            (finalCity === '' || uni.city === finalCity) &&
-            uni.sections.programs.list.some(p => p.subjects_required.includes(finalSubject))
-        );
-
-        if (recommendedUni) {
-            recommendationText += `<p style="font-size: 1.1em; color: var(--primary-dark);"><strong>ВУЗ для вас:</strong> Мы рекомендуем начать с программ в <strong>${recommendedUni.name}</strong> (${recommendedUni.city}), так как они соответствуют вашему профилю и предмету.</p>`;
-            recommendationText += `<p>Нажмите кнопку "Подробнее" в каталоге рядом с этим ВУЗом, чтобы узнать больше!</p>`;
-        } else {
-             recommendationText += `<p style="font-size: 1.1em; color: #856404;"><strong>Совет:</strong> Выберите в фильтре сверху предмет <strong>"${finalSubject}"</strong> и, если нужно, город <strong>"${finalCity || 'любой'}"</strong>, чтобы увидеть полный список подходящих ВУЗов!</p>`;
-        }
-        
-        quizResults.innerHTML = recommendationText;
-        quizResults.style.display = 'block';
-        quizContainer.innerHTML = '<button onclick="startQuiz()">Начать опрос заново</button>';
-
-    }, 1500); 
+    resultsContainer.innerHTML = resultText;
+    resultsContainer.style.display = 'block';
+    quizContainer.innerHTML = '<p>Опрос завершен. Нажми кнопку, чтобы пройти его снова.</p><button onclick="startQuiz()">Пройти опрос заново</button>';
 }
 
-// Привязка функций к глобальному окну для доступа из HTML
-window.startQuiz = startQuiz;
-window.answerQuiz = answerQuiz;
-window.filterUniversities = filterUniversities;
-window.openModal = openModal;
-window.closeModal = closeModal;
-window.toggleComparison = toggleComparison;
-window.clearComparison = clearComparison;
+// --- Инициализация при загрузке ---
+window.onload = () => {
+    displayUniversities(universityData);
+    document.getElementById('city-filter').onchange = filterUniversities;
+    document.getElementById('subject1').onchange = filterUniversities;
+    document.getElementById('subject2').onchange = filterUniversities;
+};
+
+
+// =================================================================
+// ЧАСТЬ 3: ЛОГИКА ЧАТ-БОТА NURUM (Психологический Консультант)
+// =================================================================
+const chatBody = document.querySelector('#nurym-chat-modal .chat-body');
+const chatInput = document.getElementById('chat-input-field'); 
+const chatSendBtn = document.getElementById('send-btn');
+const chatMicBtn = document.getElementById('mic-btn'); 
+const chatSoundBtn = document.getElementById('sound-btn'); 
+const chatModal = document.getElementById('nurym-chat-modal');
+const chatOpenBtn = document.getElementById('nurym-chat-btn');
+const chatCloseBtn = document.querySelector('.close-chat');
+
+// --- Функции для управления чатом ---
+chatOpenBtn.onclick = () => {
+    chatModal.style.display = 'flex';
+    if (chatBody.children.length === 0) {
+        addNurymMessage("🤖 Здравствуйте! Я — Nurym AI, и я здесь, чтобы стать вашим **надежным проводником и консультантом** в поиске идеального пути. Поделитесь своими мыслями: что вас тревожит или вдохновляет в выборе университета?");
+    }
+};
+
+chatCloseBtn.onclick = () => {
+    chatModal.style.display = 'none';
+};
+
+function addMessage(text, sender) {
+    const msg = document.createElement('div');
+    msg.classList.add('message', sender);
+    msg.innerHTML = text.replace(/\n/g, '<br>'); 
+    chatBody.appendChild(msg);
+    chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+function addUserMessage(text) {
+    addMessage(text, 'user');
+}
+
+function addNurymMessage(text) {
+    addMessage(text, 'nurym');
+}
+
+chatSendBtn.onclick = () => processUserMessage();
+chatInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
