@@ -182,14 +182,18 @@ function applyFilters() {
     renderCatalog(filteredData);
 }
 
-// Инициализация каталога при загрузке страницы
+// Инициализация каталога и привязка фильтров при загрузке страницы
 document.addEventListener('DOMContentLoaded', () => {
     renderCatalog(universityData);
     
     // Привязка обработчиков событий к фильтрам
-    document.getElementById('city-filter').addEventListener('change', applyFilters);
-    document.getElementById('type-filter').addEventListener('change', applyFilters);
-    document.getElementById('subject-filter').addEventListener('change', applyFilters);
+    const cityFilter = document.getElementById('city-filter');
+    const typeFilter = document.getElementById('type-filter');
+    const subjectFilter = document.getElementById('subject-filter');
+
+    if (cityFilter) cityFilter.addEventListener('change', applyFilters);
+    if (typeFilter) typeFilter.addEventListener('change', applyFilters);
+    if (subjectFilter) subjectFilter.addEventListener('change', applyFilters);
 });
 
 
@@ -201,6 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
 let chatState = 'default'; // default, asking_major, asking_subject
 let chatResponseData = {}; // Для сбора ответов пользователя
 
+// Получение элементов (проверка на их существование выполняется ниже при привязке событий)
 const chatButton = document.getElementById('nurym-chat-btn');
 const chatWindow = document.getElementById('nurym-chat-window');
 const chatMessages = document.getElementById('chat-messages');
@@ -212,22 +217,27 @@ const chatSendBtn = document.getElementById('send-btn');
 // -----------------------------------------------------------------
 
 function toggleChat() {
+    if (!chatWindow) return; // Защита от null
+    
     chatWindow.classList.toggle('open');
     if (chatWindow.classList.contains('open')) {
         // Приветствие при открытии
-        if (chatMessages.children.length === 0) {
-            appendMessage('Nurym AI', "Приветствую! Я Nurym AI, ваш консультант по выбору ВУЗа. Я могу помочь выбрать профессию, найти университет или рассказать о требованиях ЕНТ. С чего начнем?");
+        if (chatMessages && chatMessages.children.length === 0) {
+            appendMessage('Nurym AI', "Приветствую! Я **Nurym AI**, ваш консультант по выбору ВУЗа. Я могу помочь выбрать профессию, найти университет или рассказать о требованиях ЕНТ. С чего начнем?");
         }
-        chatInput.focus();
+        if (chatInput) chatInput.focus();
     }
 }
 
 function appendMessage(sender, text) {
+    if (!chatMessages) return; // Защита от null
+
     const messageDiv = document.createElement('div');
     messageDiv.className = sender === 'User' ? 'user-message' : 'nurym-message';
     
     const textNode = document.createElement('p');
-    textNode.innerHTML = text.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>'); // Замена **текст** на <b>текст</b>
+    // Замена **текст** на <b>текст</b>
+    textNode.innerHTML = text.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>'); 
     messageDiv.appendChild(textNode);
     
     chatMessages.appendChild(messageDiv);
@@ -300,7 +310,7 @@ function generateAiResponse(query) {
             finalRecommendation += `Вы выбрали **${subject}**. На основе ваших интересов, я рекомендую обратить внимание на программу "${program.program_name}" в **${recommendedUni.name}** (${recommendedUni.city}).`;
             finalRecommendation += `\n\nЭтот ВУЗ — один из лучших в области, где требуется ${subject}. Можете найти его в Каталоге ниже!`;
         } else {
-            finalRecommendation += `Выбранный предмет: **${query}**. Вам подходят специальности, где требуется этот предмет. Используйте его в фильтрах каталога.`;
+            finalRecommendation += `Вы выбрали **${query}**. Вам подходят специальности, где требуется этот предмет. Используйте его в фильтрах каталога, чтобы найти лучшие ВУЗы!`;
         }
 
         return finalRecommendation + "\n\nЯ могу еще что-то подсказать?";
@@ -337,7 +347,7 @@ function generateAiResponse(query) {
     }
 
     // 4. Заглушка
-    return "Интересный вопрос! Я Nurym AI, и я специализируюсь на информации о ВУЗах, ЕНТ и выборе профиля. Спросите меня о конкретном университете или попросите 'помочь выбрать профессию'!";
+    return "Интересный вопрос! Я Nurym AI, и я специализируюсь на информации о ВУЗах, ЕНТ и выборе профиля. Спросите меня о конкретном университете или попросите '**помочь выбрать профессию**'!";
 }
 
 function handleUserInput() {
@@ -360,10 +370,13 @@ function handleUserInput() {
 // Привязка событий
 // -----------------------------------------------------------------
 
-chatButton.addEventListener('click', toggleChat);
-chatSendBtn.addEventListener('click', handleUserInput);
-chatInput.addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') {
-        handleUserInput();
-    }
-});
+// Защита от ошибок: привязываем события только если элементы существуют
+if (chatButton) chatButton.addEventListener('click', toggleChat);
+if (chatSendBtn) chatSendBtn.addEventListener('click', handleUserInput);
+if (chatInput) {
+    chatInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            handleUserInput();
+        }
+    });
+}
